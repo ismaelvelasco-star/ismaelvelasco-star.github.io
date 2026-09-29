@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reveal Slides Creator"
+  short_description: "Genera slides Reveal.js desde teoría de MkDocs"
+  default_prompt: "Genera una presentación Reveal.js a partir de un documento de teoría siguiendo AGENTS.md"

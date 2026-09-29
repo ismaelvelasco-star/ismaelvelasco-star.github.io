@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pedagogical Language Checker"
+  short_description: "Ajusta tono didáctico e inclusivo"
+  default_prompt: "Revisa el tono pedagógico de este material"

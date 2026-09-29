@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontmatter Metadata Enforcer"
+  short_description: "Valida y corrige frontmatter YAML"
+  default_prompt: "Revisa y corrige los metadatos obligatorios de este documento"

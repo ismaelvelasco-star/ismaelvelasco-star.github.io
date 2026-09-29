@@ -1,0 +1,4 @@
+interface:
+  display_name: "Content Workflow Checklist"
+  short_description: "Orquesta y verifica el flujo editorial"
+  default_prompt: "Guíame por el flujo correcto para crear y validar contenido"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Markdown Style Enforcer"
+  short_description: "Aplica estilo Markdown y MkDocs"
+  default_prompt: "Revisa el estilo Markdown de este contenido educativo"

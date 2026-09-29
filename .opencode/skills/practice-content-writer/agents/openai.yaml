@@ -1,0 +1,4 @@
+interface:
+  display_name: "Practice Content Writer"
+  short_description: "Genera prácticas guiadas y soluciones"
+  default_prompt: "Crea una práctica para este repositorio educativo"

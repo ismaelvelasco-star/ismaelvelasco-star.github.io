@@ -1,0 +1,4 @@
+interface:
+  display_name: "Naming Conventions Enforcer"
+  short_description: "Valida nombres de archivos y carpetas"
+  default_prompt: "Comprueba si estos nombres siguen la convención del repositorio"

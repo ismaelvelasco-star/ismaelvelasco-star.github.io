@@ -1,0 +1,4 @@
+interface:
+  display_name: "Repo Structure Guide"
+  short_description: "Ubica contenido y recursos en el repositorio"
+  default_prompt: "Indica dónde debe ir cada archivo y recurso en este repositorio educativo"

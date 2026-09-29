@@ -1,0 +1,4 @@
+interface:
+  display_name: "Slides Linker"
+  short_description: "Enlaza presentaciones en docs"
+  default_prompt: "Añade una presentación Reveal.js en los 4 puntos obligatorios de docs"

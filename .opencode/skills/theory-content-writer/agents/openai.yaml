@@ -1,0 +1,4 @@
+interface:
+  display_name: "Theory Content Writer"
+  short_description: "Genera teoría didáctica en MkDocs"
+  default_prompt: "Crea un documento de teoría para este repositorio educativo"

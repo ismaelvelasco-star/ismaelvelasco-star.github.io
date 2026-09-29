@@ -1,0 +1,4 @@
+interface:
+  display_name: "GIFT Quiz Generator"
+  short_description: "Genera cuestionarios GIFT desde teoría"
+  default_prompt: "Genera un banco GIFT a partir de un tema de teoría"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mermaid Diagram Creator"
+  short_description: "Genera diagramas Mermaid y UML didácticos"
+  default_prompt: "Crea un diagrama Mermaid claro y válido para explicar este concepto"

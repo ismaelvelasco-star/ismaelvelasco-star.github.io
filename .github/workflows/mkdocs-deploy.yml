@@ -1,0 +1,37 @@
+name: mkdocs-and-slides-deploy
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout del código fuente (rama main)
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # 2. Configurar Python y dependencias
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+      - run: pip install mkdocs-material mkdocs-blogging-plugin
+
+      # 3. Desplegar la documentación (limpia gh-pages)
+      - name: Deploy MkDocs (clean gh-pages)
+        run: mkdocs gh-deploy --force --verbose
+
+      # 4. Desplegar la carpeta slides a gh-pages (sin borrar el resto)
+      - name: Deploy slides to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: slides
+          destination_dir: slides
+          keep_files: true
