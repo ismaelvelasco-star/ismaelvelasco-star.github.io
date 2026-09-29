@@ -1,7 +1,7 @@
 ---
-title: "PMDM — Programación Multimedia y Dispositivos Móviles"
-description: Temario del módulo Programación Multimedia y Dispositivos Móviles con Kotlin y Android
-summary: "Temario, prácticas y presentaciones del módulo 0489 adaptado a Kotlin y Android."
+title: "Aula 2º DAM — Ismael Velasco"
+description: Temario de los módulos PMDM (0489) y Desarrollo de Interfaces (0488) con Kotlin, Android y Jetpack Compose.
+summary: "PMDM y DI: teoría, prácticas, ejercicios, solucionarios y presentaciones."
 authors:
     - Ismael Velasco
 date: 2026-09-29
@@ -9,20 +9,23 @@ icon: "material/home"
 permalink: /
 ---
 
-# Programación Multimedia y Dispositivos Móviles · 2º DAM
+# Aula 2º DAM · PMDM y Desarrollo de Interfaces
 
-Temario del módulo **Programación Multimedia y Dispositivos Móviles** (código 0489, RD 450/2010) del ciclo Desarrollo de Aplicaciones Multiplataforma, con **Kotlin y Android**.
+Material docente de los módulos del ciclo **Desarrollo de Aplicaciones Multiplataforma**:
 
-Enfoque 2026/27: desarrollo Android **100% Kotlin**. Cada unidad incluye teoría, prácticas graduadas y presentación.
+- **PMDM — Programación Multimedia y Dispositivos Móviles** (código 0489, RD 450/2010), con Kotlin y Android.
+- **DI — Desarrollo de Interfaces** (código 0488, RD 450/2010), con Kotlin y Jetpack Compose.
 
 ## Acceso directo
 
-- [Módulo PMDM](section1/index.md) → unidades, presentaciones y normativa
-- [UD 1: Análisis de tecnologías para dispositivos móviles](section1/u01/index.md) — [teoría](section1/u01/teoria/PMDM-U1.1.-AnalisisTecnologiasDispositivosMoviles.md) · [slides](https://ismaelvelasco-star.github.io/pmdm-multimedia-dispositivos-moviles/slides/section1-pmdm/PM-U1.1.-AnalisisTecnologiasMoviles.html)
+- [PMDM](section1/index.md) → UD1: teoría, prácticas y presentación
+- [DI](section2/index.md) → UD1-UD2: teoría, ejercicios, solucionarios y presentaciones
+- [UD1 PMDM: Análisis de tecnologías](section1/u01/index.md) — [teoría](section1/u01/teoria/PMDM-U1.1.-AnalisisTecnologiasDispositivosMoviles.md) · [slides](https://ismaelvelasco-star.github.io/slides/section1-pmdm/PM-U1.1.-AnalisisTecnologiasMoviles.html)
+- [UD1 DI: Introducción a la confección de interfaces](section2/u01/index.md) — [teoría](section2/u01/teoria/DI-U1.1.-IntroduccionConfeccionInterfaces.md) · [slides](https://ismaelvelasco-star.github.io/slides/section2-di/DI-U1.1.-IntroduccionConfeccionInterfaces.html)
+- [UD2 DI: Clases y componentes](section2/u02/index.md) — [teoría](section2/u01/../u02/teoria/DI-U2.1.-ClasesYComponentes.md) · [slides](https://ismaelvelasco-star.github.io/slides/section2-di/DI-U2.1.-ClasesYComponentes.html)
 
 ## Convenciones del repositorio
 
-- Teoría: `docs/sectionN/uNN/teoria/PMDM-UX.Y.-Nombre.md`
-- Prácticas: `docs/sectionN/uNN/practica/PMDM-UX.-PracticaNNN.md`
-- Slides: `slides/sectionN-pmdm/PM-UX.Y.-Nombre.md` + `.html` (Reveal.js)
+- PMDM: teoría `section1/uNN/teoria/PMDM-UX.Y` · prácticas `PMDM-UX.-PracticaNNN` · slides `slides/section1-pmdm/PM-UX.Y`
+- DI: teoría `section2/uNN/teoria/DI-UX.Y` · ejercicios+solucionario `ejercicios/DI-UX.-...` · slides `slides/section2-di/DI-UX.Y`
 - Sitio generado con MkDocs Material; publicación automática en cada push a `main`

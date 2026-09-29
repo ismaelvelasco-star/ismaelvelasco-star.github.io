@@ -1,21 +1,19 @@
-# PMDM — Programación Multimedia y Dispositivos Móviles
+# Aula 2º DAM — ismaelvelasco-star.github.io
 
-Material del módulo **0489 PMDM** (RD 450/2010) del ciclo DAM, adaptado a **Kotlin y Android**.
+Sitio docente con los módulos del ciclo Desarrollo de Aplicaciones Multiplataforma:
 
-## Estructura
-
-- `docs/` — teoría, prácticas y recursos (MkDocs Material)
-- `slides/` — presentaciones Reveal.js (`PM-UX.Y`)
-- `mkdocs.yml` — navegación del sitio
-- Despliegue automático a GitHub Pages en cada push a `main`
+- **PMDM** (0489, RD 450/2010) — Kotlin y Android · `docs/section1` + `slides/section1-pmdm`
+- **DI — Desarrollo de Interfaces** (0488, RD 450/2010) — Kotlin y Jetpack Compose · `docs/section2` + `slides/section2-di`
 
 ## Web
 
-https://ismaelvelasco-star.github.io/pmdm-multimedia-dispositivos-moviles/
+https://ismaelvelasco-star.github.io/
 
-## Convenciones
+## Estructura
 
-- Teoría: `PMDM-U1.1.-Nombre.md` · Prácticas: `PMDM-U1.-PracticaNNN.md` · Slides: `PM-U1.1.-Nombre.md`
+- `docs/` — teoría, prácticas, ejercicios y solucionarios (MkDocs Material)
+- `slides/` — presentaciones Reveal.js
+- Despliegue automático a GitHub Pages en cada push a `main`
 
 ---
 Por Ismael Velasco · IES Rafael Alberti

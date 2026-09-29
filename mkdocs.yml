@@ -1,10 +1,10 @@
-site_name: PMDM - Programación Multimedia y Dispositivos Móviles
+site_name: Aula 2º DAM - Ismael Velasco
 site_url: 'https://ismaelvelasco-star.github.io/di-desarrollo-interfaces'
 repo_url: 'https://github.com/ismaelvelasco-star/di-desarrollo-interfaces'
 repo_name: 'ismaelvelasco-star/di-desarrollo-interfaces'
 edit_uri: edit/main/docs/
 site_author: 'Ismael Velasco'
-site_description: Temario del módulo 0489 PMDM con Kotlin y Android
+site_description: PMDM (0489) y Desarrollo de Interfaces (0488) con Kotlin, Android y Jetpack Compose
 
 nav:
   - 'Principal': 'index.md'
@@ -16,6 +16,18 @@ nav:
         - 'Práctica 1.1: Explorando Android Studio y sus plantillas': 'section1/u01/practica/PMDM-U1.-Practica001.md'
         - 'Práctica 1.2: Emuladores y perfiles de dispositivo': 'section1/u01/practica/PMDM-U1.-Practica002.md'
         - 'Práctica 1.3: ADB y el administrador de aplicaciones': 'section1/u01/practica/PMDM-U1.-Practica003.md'
+  - 'Desarrollo de Interfaces':
+    - 'section2/index.md'
+    - 'UD 1 - Introducción a la confección de interfaces':
+        - 'section2/u01/index.md'
+        - '1.1.-Introducción a la confección de interfaces': 'section2/u01/teoria/DI-U1.1.-IntroduccionConfeccionInterfaces.md'
+        - 'Ejercicios U1 (de menor a mayor)': 'section2/u01/ejercicios/DI-U1.-Ejercicios.md'
+        - 'Solucionario U1 (con enunciados)': 'section2/u01/ejercicios/DI-U1.-Solucionario.md'
+    - 'UD 2 - Clases y componentes':
+        - 'section2/u02/index.md'
+        - '2.1.-Clases y componentes': 'section2/u02/teoria/DI-U2.1.-ClasesYComponentes.md'
+        - 'Ejercicios U2 (práctica progresiva)': 'section2/u02/ejercicios/DI-U2.-Ejercicios.md'
+        - 'Solucionario U2 (con enunciados)': 'section2/u02/ejercicios/DI-U2.-Solucionario.md'
   - 'Acerca de': 'about.md'
 
 theme:
