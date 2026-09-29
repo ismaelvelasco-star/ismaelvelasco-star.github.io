@@ -6,37 +6,37 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Módulo Desarrollo de Interfaces con Kotlin y Jetpack Compose">
+        <meta name="description" content="Generar ejecutables de un proyecto Compose Multiplatform para escritorio, web y móvil desde Android Studio con tareas Gradle.">
       
       
         <meta name="author" content="Ismael Velasco">
       
       
-        <link rel="canonical" href="https://ismaelvelasco-star.github.io/di-desarrollo-interfaces/section2/">
+        <link rel="canonical" href="https://ismaelvelasco-star.github.io/di-desarrollo-interfaces/section2/u01/practica/DI-U1.-Practica001/">
       
       
-        <link rel="prev" href="../section1/u01/practica/PMDM-U1.-Practica003/">
+        <link rel="prev" href="../../teoria/DI-U1.1.-IntroduccionConfeccionInterfaces/">
       
       
-        <link rel="next" href="u01/">
+        <link rel="next" href="../../ejercicios/DI-U1.-Ejercicios/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>DI — Desarrollo de Interfaces (2º DAM) - Aula 2º DAM - Ismael Velasco</title>
+        <title>UD 1 - P1: Nuestra app en todas las plataformas - Aula 2º DAM - Ismael Velasco</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#di-desarrollo-de-interfaces" class="md-skip">
+        <a href="#practica-1-nuestra-app-en-todas-las-plataformas" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
-    <a href=".." title="Aula 2º DAM - Ismael Velasco" class="md-header__button md-logo" aria-label="Aula 2º DAM - Ismael Velasco" data-md-component="logo">
+    <a href="../../../.." title="Aula 2º DAM - Ismael Velasco" class="md-header__button md-logo" aria-label="Aula 2º DAM - Ismael Velasco" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DI — Desarrollo de Interfaces (2º DAM)
+              UD 1 - P1: Nuestra app en todas las plataformas
             
           </span>
         </div>
@@ -227,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../../../.." class="md-tabs__link">
         
   
   
@@ -250,7 +250,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../section1/" class="md-tabs__link">
+        <a href="../../../../section1/" class="md-tabs__link">
           
   
   
@@ -272,7 +272,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../../../" class="md-tabs__link">
           
   
   
@@ -290,7 +290,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../about/" class="md-tabs__link">
+      <a href="../../../../about/" class="md-tabs__link">
         
   
   
@@ -325,7 +325,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Aula 2º DAM - Ismael Velasco" class="md-nav__button md-logo" aria-label="Aula 2º DAM - Ismael Velasco" data-md-component="logo">
+    <a href="../../../.." title="Aula 2º DAM - Ismael Velasco" class="md-nav__button md-logo" aria-label="Aula 2º DAM - Ismael Velasco" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -355,7 +355,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -436,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../section1/" class="md-nav__link">
+      <a href="../../../../section1/" class="md-nav__link">
         
   
   
@@ -516,7 +516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../section1/u01/" class="md-nav__link">
+      <a href="../../../../section1/u01/" class="md-nav__link">
         
   
   
@@ -546,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../section1/u01/teoria/PMDM-U1.1.-AnalisisTecnologiasDispositivosMoviles/" class="md-nav__link">
+      <a href="../../../../section1/u01/teoria/PMDM-U1.1.-AnalisisTecnologiasDispositivosMoviles/" class="md-nav__link">
         
   
   
@@ -576,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../section1/u01/practica/PMDM-U1.-Practica001/" class="md-nav__link">
+      <a href="../../../../section1/u01/practica/PMDM-U1.-Practica001/" class="md-nav__link">
         
   
   
@@ -606,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../section1/u01/practica/PMDM-U1.-Practica002/" class="md-nav__link">
+      <a href="../../../../section1/u01/practica/PMDM-U1.-Practica002/" class="md-nav__link">
         
   
   
@@ -636,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../section1/u01/practica/PMDM-U1.-Practica003/" class="md-nav__link">
+      <a href="../../../../section1/u01/practica/PMDM-U1.-Practica003/" class="md-nav__link">
         
   
   
@@ -735,39 +735,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.5c-1.35-.85-3.8-1.5-5.5-1.5-1.65 0-3.35.3-4.75 1.05-.1.05-.15.05-.25.05-.25 0-.5-.25-.5-.5V6c.6-.45 1.25-.75 2-1 1.11-.35 2.33-.5 3.5-.5 1.95 0 4.05.4 5.5 1.5 1.45-1.1 3.55-1.5 5.5-1.5 1.17 0 2.39.15 3.5.5.75.25 1.4.55 2 1v14.6c0 .25-.25.5-.5.5-.1 0-.15 0-.25-.05-1.4-.75-3.1-1.05-4.75-1.05-1.7 0-4.15.65-5.5 1.5M12 8v11.5c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5V7c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5m1 3.5c1.11-.68 2.6-1 4.5-1 .91 0 1.76.09 2.5.28V9.23c-.87-.15-1.71-.23-2.5-.23q-2.655 0-4.5.84zm4.5.17c-1.71 0-3.21.26-4.5.79v1.69c1.11-.65 2.6-.99 4.5-.99 1.04 0 1.88.08 2.5.24v-1.5c-.87-.16-1.71-.23-2.5-.23m2.5 2.9c-.87-.16-1.71-.24-2.5-.24-1.83 0-3.33.27-4.5.8v1.69c1.11-.66 2.6-.99 4.5-.99 1.04 0 1.88.08 2.5.24z"/></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    DI — Desarrollo de Interfaces (2º DAM)
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
         
   
   
@@ -785,76 +756,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#unidades" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unidades
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#presentaciones" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Presentaciones
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Presentaciones">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#unidad-1-introduccion-a-la-confeccion-de-interfaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unidad 1 - Introducción a la confección de interfaces
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recursos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recursos
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -864,6 +765,8 @@
                 
   
   
+    
+  
   
   
     
@@ -879,11 +782,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
@@ -904,7 +807,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -922,7 +825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="u01/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -952,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="u01/teoria/DI-U1.1.-IntroduccionConfeccionInterfaces/" class="md-nav__link">
+      <a href="../../teoria/DI-U1.1.-IntroduccionConfeccionInterfaces/" class="md-nav__link">
         
   
   
@@ -979,10 +882,39 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="u01/practica/DI-U1.-Practica001/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h4v-1.91L12.09 18H6v-2h8.09l2-2H6v-2h12.09L20 10.09V8l-6-6zm7 1.5L18.5 9H13zm7.15 9.5a.55.55 0 0 0-.4.16l-1.02 1.02 2.09 2.08 1.02-1.01c.21-.22.21-.58 0-.79l-1.3-1.3a.54.54 0 0 0-.39-.16m-2.01 1.77L12 20.92V23h2.08l6.15-6.15z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Práctica 1: Nuestra app en todas las plataformas
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1000,6 +932,158 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-objetivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Objetivos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-punto-de-partida-el-proyecto-multiplataforma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Punto de partida: el proyecto multiplataforma
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-la-herramienta-estrella-run-edit-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. La herramienta estrella: Run → Edit Configurations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-escritorio-el-exe-portable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Escritorio: el .exe portable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-escritorio-el-instalador-msi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Escritorio: el instalador .msi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-escritorio-el-uber-jar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Escritorio: el uber JAR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-web-la-app-en-el-navegador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Web: la app en el navegador
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-android-el-apk-de-toda-la-vida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Android: el APK de toda la vida
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-y-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. ¿Y iOS?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-tabla-de-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Tabla de referencia
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criterios-de-entrega" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criterios de entrega
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1012,7 +1096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="u01/ejercicios/DI-U1.-Ejercicios/" class="md-nav__link">
+      <a href="../../ejercicios/DI-U1.-Ejercicios/" class="md-nav__link">
         
   
   
@@ -1042,7 +1126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="u01/ejercicios/DI-U1.-Solucionario/" class="md-nav__link">
+      <a href="../../ejercicios/DI-U1.-Solucionario/" class="md-nav__link">
         
   
   
@@ -1135,7 +1219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="u02/" class="md-nav__link">
+      <a href="../../../u02/" class="md-nav__link">
         
   
   
@@ -1165,7 +1249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="u02/teoria/DI-U2.1.-ClasesYComponentes/" class="md-nav__link">
+      <a href="../../../u02/teoria/DI-U2.1.-ClasesYComponentes/" class="md-nav__link">
         
   
   
@@ -1195,7 +1279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="u02/ejercicios/DI-U2.-Ejercicios/" class="md-nav__link">
+      <a href="../../../u02/ejercicios/DI-U2.-Ejercicios/" class="md-nav__link">
         
   
   
@@ -1225,7 +1309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="u02/ejercicios/DI-U2.-Solucionario/" class="md-nav__link">
+      <a href="../../../u02/ejercicios/DI-U2.-Solucionario/" class="md-nav__link">
         
   
   
@@ -1270,7 +1354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../about/" class="md-nav__link">
+      <a href="../../../../about/" class="md-nav__link">
         
   
   
@@ -1319,10 +1403,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#unidades" class="md-nav__link">
+  <a href="#1-objetivos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Unidades
+        1. Objetivos
       
     </span>
   </a>
@@ -1330,38 +1414,120 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#presentaciones" class="md-nav__link">
+  <a href="#2-punto-de-partida-el-proyecto-multiplataforma" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Presentaciones
+        2. Punto de partida: el proyecto multiplataforma
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Presentaciones">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#unidad-1-introduccion-a-la-confeccion-de-interfaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unidad 1 - Introducción a la confección de interfaces
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#recursos" class="md-nav__link">
+  <a href="#3-la-herramienta-estrella-run-edit-configurations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Recursos
+        3. La herramienta estrella: Run → Edit Configurations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-escritorio-el-exe-portable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Escritorio: el .exe portable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-escritorio-el-instalador-msi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Escritorio: el instalador .msi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-escritorio-el-uber-jar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Escritorio: el uber JAR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-web-la-app-en-el-navegador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Web: la app en el navegador
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-android-el-apk-de-toda-la-vida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Android: el APK de toda la vida
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-y-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. ¿Y iOS?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-tabla-de-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Tabla de referencia
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criterios-de-entrega" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criterios de entrega
       
     </span>
   </a>
@@ -1388,42 +1554,214 @@
   
 
 
-<h1 id="di-desarrollo-de-interfaces">DI — Desarrollo de Interfaces</h1>
-<p>Bienvenid@ al temario de <strong>Desarrollo de Interfaces</strong> del ciclo <strong>Desarrollo de Aplicaciones Multiplataforma (2º DAM)</strong>.</p>
-<p>Este curso el módulo se imparte íntegramente con <strong>Kotlin y Jetpack Compose</strong>, siguiendo la estructura oficial del módulo 0488 (RD 450/2010): teoría, ejercicios graduados con solucionario y presentaciones.</p>
-<h2 id="unidades">Unidades</h2>
+<h1 id="practica-1-nuestra-app-en-todas-las-plataformas">Práctica 1: Nuestra app en todas las plataformas</h1>
+<p>Ya tenemos una interfaz Compose que compila y corre. ¿Y si la queremos <strong>en el escritorio de cualquier Windows, en un navegador y en el móvil</strong>? En esta práctica vamos a convertir el proyecto Compose Multiplatform en productos repartibles: un <code>.exe</code> portable, un instalador <code>.msi</code>, una web estática y un APK. Todo sin escribir una línea de empaquetado: <strong>las tareas Gradle ya lo saben hacer</strong>.</p>
+<p><strong>Duración estimada:</strong> 2 horas de aula. Con la ampliación, 4 horas.</p>
+<h3 id="1-objetivos">1. Objetivos</h3>
+<ul>
+<li>Crear configuraciones de ejecución Gradle personalizadas en Android Studio (<em>Run → Edit Configurations</em>).</li>
+<li>Generar un ejecutable de escritorio portátil para Windows (<code>createDistributable</code>).</li>
+<li>Generar el instalador del sistema operativo actual (<code>packageDistributionForCurrentOS</code>).</li>
+<li>Generar la distribución web del proyecto (<code>composeCompatibilityBrowserDistribution</code>) y servirla en local.</li>
+<li>Entender qué plataformas pueden compilarse desde Windows y cuáles exigen otro sistema operativo (iOS → macOS).</li>
+</ul>
+<h3 id="2-punto-de-partida-el-proyecto-multiplataforma">2. Punto de partida: el proyecto multiplataforma</h3>
+<p>Partimos de un proyecto creado con el asistente de <a href="https://kmp.jetbrains.com/">kmp.jetbrains.com</a>, con esta estructura de módulos:</p>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>Unidad</th>
-<th>Estado</th>
+<th>Módulo</th>
+<th>Qué contiene</th>
+<th>Producto que genera</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>Introducción a la confección de interfaces</td>
-<td>✅ Publicada</td>
+<td><code>core</code></td>
+<td>Lógica pura compartida (sin UI)</td>
+<td>Biblioteca usada por los demás</td>
 </tr>
 <tr>
-<td>2+</td>
-<td>En construcción (tema a tema)</td>
-<td>🚧</td>
+<td><code>app/shared</code></td>
+<td>UI Compose compartida</td>
+<td>Biblioteca de composables</td>
+</tr>
+<tr>
+<td><code>app/androidApp</code></td>
+<td>Punto de entrada Android</td>
+<td><strong>APK</strong> (<code>assembleDebug</code> / <code>assembleRelease</code>)</td>
+</tr>
+<tr>
+<td><code>app/desktopApp</code></td>
+<td>Punto de entrada escritorio (JVM)</td>
+<td><strong>.exe portable, .msi, .deb, .dmg, uber JAR</strong></td>
+</tr>
+<tr>
+<td><code>app/webApp</code></td>
+<td>Punto de entrada navegador (Kotlin/JS + Wasm)</td>
+<td><strong>Web estática</strong> (HTML + JS/Wasm)</td>
+</tr>
+<tr>
+<td><code>app/iosApp</code></td>
+<td>Punto de entrada iOS</td>
+<td>App iOS (<strong>solo desde macOS + Xcode</strong>)</td>
 </tr>
 </tbody>
 </table>
-<h2 id="presentaciones">Presentaciones</h2>
-<h4 id="unidad-1-introduccion-a-la-confeccion-de-interfaces">Unidad 1 - Introducción a la confección de interfaces</h4>
+<blockquote>
+<p><strong>Regla de oro:</strong> cada plataforma se empaqueta DESDE su sistema operativo. Desde Windows podemos generar Android, escritorio y web. iOS exige un Mac. No es una limitación de Kotlin: firmar y compilar para iOS requiere las herramientas de Apple.</p>
+</blockquote>
+<h3 id="3-la-herramienta-estrella-run-edit-configurations">3. La herramienta estrella: Run → Edit Configurations</h3>
+<p>Android Studio puede lanzar <strong>cualquier tarea Gradle</strong> con el botón de <em>Run</em>, pero hay que enseñársela. Este es el flujo que usaremos toda la práctica (y toda la carrera):</p>
+<ol>
+<li>Menú <strong>Run → Edit Configurations...</strong></li>
+<li>Botón <strong>+</strong> → <strong>Gradle</strong></li>
+<li><strong>Name:</strong> un nombre claro, por ejemplo <code>Generar EXE</code></li>
+<li><strong>Run:</strong> la tarea Gradle completa, por ejemplo <code>:app:desktopApp:createDistributable</code></li>
+<li><strong>Apply → OK</strong></li>
+</ol>
+<p>Ahora esa tarea aparece en el desplegable de configuraciones (junto al botón ▶) y se ejecuta <strong>con un clic</strong>, igual que una app. Crea una configuración por cada producto de esta práctica: <code>Generar EXE</code>, <code>Generar MSI</code>, <code>Generar Web</code>, <code>Generar APK</code>.</p>
+<h3 id="4-escritorio-el-exe-portable">4. Escritorio: el .exe portable</h3>
+<p><strong>Tarea:</strong> <code>:app:desktopApp:createDistributable</code></p>
+<ol>
+<li>Crea la configuración de ejecución como se explicó arriba y lánzala.</li>
+<li>La primera ejecución descarga herramientas (WiX Toolset, imagen de runtime). Paciencia: es normal que tarde.</li>
+<li>Cuando acabe, el producto está en:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>app/desktopApp/build/compose/binaries/main/app/&lt;tu.paquete&gt;/
+</code></pre></div>
+<ol>
+<li>Dentro hay tres piezas: el <code>.exe</code> (lanzador), la carpeta <code>runtime/</code> (una JVM completa) y <code>app/</code> (los jars de tu aplicación).</li>
+<li><strong>Copia la carpeta entera</strong> al Escritorio, renómbrala (<code>MiAppEscritorio</code>) y haz doble clic en el <code>.exe</code>. Tu interfaz Compose corre como programa de Windows, <strong>sin tener Java instalado</strong> en el equipo.</li>
+</ol>
+<blockquote>
+<p>Tareas hermanas: <code>run</code> ejecuta sin empaquetar, <code>runDistributable</code> prueba justo lo que acaba de empaquetarse, y <code>createReleaseDistributable</code> genera la versión optimizada (con ProGuard, vía <code>proguardReleaseJars</code>).</p>
+</blockquote>
+<h3 id="5-escritorio-el-instalador-msi">5. Escritorio: el instalador .msi</h3>
+<p><strong>Tarea:</strong> <code>:app:desktopApp:packageDistributionForCurrentOS</code></p>
+<p>Genera el instalador nativo <strong>del sistema operativo en el que compilas</strong>: en Windows, un <code>.msi</code> (en Linux un <code>.deb</code>, en macOS un <code>.dmg</code>). El archivo queda en <code>app/desktopApp/build/compose/binaries/main/msi/</code>. Instálalo: tu app aparece en el menú Inicio y en <em>Aplicaciones instaladas</em>, con su desinstalador. La diferencia con el portable es exactamente esa: integración con el sistema.</p>
+<blockquote>
+<p>Las tareas <code>packageMsi</code>, <code>packageDeb</code> y <code>packageDmg</code> existen por separado, pero jpackage solo empaqueta para el SO anfitrión: desde Windows, la válida es <code>packageMsi</code>. Otra vez la regla de oro del apartado 2.</p>
+</blockquote>
+<h3 id="6-escritorio-el-uber-jar">6. Escritorio: el uber JAR</h3>
+<p><strong>Tarea:</strong> <code>:app:desktopApp:packageUberJarForCurrentOS</code></p>
+<p>Un único <code>.jar</code> con todo dentro (incluida la JVM ahead-of-time del módulo). Es el formato más portable entre máquinas <strong>que ya tienen Java</strong>, pero no es un ejecutable nativo: se lanza con <code>java -jar MiApp.jar</code>. Útil para servidores o para llevar tu app en un pen drive a cualquier SO con Java.</p>
+<h3 id="7-web-la-app-en-el-navegador">7. Web: la app en el navegador</h3>
+<p><strong>Tarea:</strong> <code>:app:webApp:composeCompatibilityBrowserDistribution</code></p>
+<p>Compila la UI compartida a JavaScript + WebAssembly y genera una web estática completa en:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>app/webApp/build/dist/wasmJs/productionExecutable/
+</code></pre></div>
+<p>Esa carpeta es <strong>una web lista para publicar</strong>: contiene un <code>index.html</code> y los bundles. Kotlin genera además la versión JS como <em>fallback</em> para navegadores sin Wasm moderno (de ahí lo de <em>compatibility</em>). Las variantes finas son <code>jsBrowserDistribution</code> (solo JavaScript) y <code>wasmJsBrowserDistribution</code> (solo Wasm).</p>
+<p>Para probarla en local, desde esa carpeta:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python -m http.server 8080
+</code></pre></div>
+<p>y abre <code>http://localhost:8080</code> en el navegador. Tu misma interfaz, en una pestaña. Para el desarrollo diario con recarga caliente existen <code>jsBrowserDevelopmentRun</code> y <code>wasmJsBrowserDevelopmentRun</code>, que arrancan un servidor webpack.</p>
+<h3 id="8-android-el-apk-de-toda-la-vida">8. Android: el APK de toda la vida</h3>
+<p><strong>Tarea:</strong> <code>:app:androidApp:assembleDebug</code></p>
+<p>Genera el APK en <code>app/androidApp/build/outputs/apk/debug/</code>. Se instala con <code>adb install -r app-debug.apk</code> (o arrastrándolo al emulador). Para Google Play, la tarea es <code>assembleRelease</code> (o <code>bundleRelease</code>, que genera el <code>.aab</code> que exige la tienda).</p>
+<h3 id="9-y-ios">9. ¿Y iOS?</h3>
+<p>El módulo <code>app/iosApp</code> está listo, pero compilarlo <strong>exige macOS con Xcode</strong>: ni el simulador ni la firma de Apple funcionan desde Windows o Linux. Es la única plataforma que nos queda vetada desde el aula. Cuando la necesites, las opciones reales son un Mac, o un servicio de compilación en la nube (los CI de pago con runners macOS).</p>
+<h3 id="10-tabla-de-referencia">10. Tabla de referencia</h3>
+<table>
+<thead>
+<tr>
+<th>Configuración (Run)</th>
+<th>Tarea Gradle</th>
+<th>Producto</th>
+<th>Dónde queda</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Generar EXE</td>
+<td><code>:app:desktopApp:createDistributable</code></td>
+<td>Carpeta portable con <code>.exe</code> + runtime</td>
+<td><code>build/compose/binaries/main/app/</code></td>
+</tr>
+<tr>
+<td>Generar MSI</td>
+<td><code>:app:desktopApp:packageDistributionForCurrentOS</code></td>
+<td>Instalador <code>.msi</code> del SO actual</td>
+<td><code>build/compose/binaries/main/msi/</code></td>
+</tr>
+<tr>
+<td>Generar JAR</td>
+<td><code>:app:desktopApp:packageUberJarForCurrentOS</code></td>
+<td>Uber JAR ejecutable</td>
+<td><code>build/compose/binaries/main/uber/</code></td>
+</tr>
+<tr>
+<td>Generar Web</td>
+<td><code>:app:webApp:composeCompatibilityBrowserDistribution</code></td>
+<td>Web estática (Wasm + fallback JS)</td>
+<td><code>build/dist/wasmJs/productionExecutable/</code></td>
+</tr>
+<tr>
+<td>Generar APK</td>
+<td><code>:app:androidApp:assembleDebug</code></td>
+<td>APK debug</td>
+<td><code>build/outputs/apk/debug/</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ejercicios">Ejercicios</h3>
+<p><strong>Ejercicio 1 — El .exe portable (obligatorio).</strong> Genera el ejecutable de escritorio, copia la carpeta de distribución fuera del proyecto (por ejemplo al Escritorio, con nombre distinto) y demuestra con dos capturas que funciona: una del proceso de compilación terminado en el terminal de Android Studio y otra de la app de escritorio abierta. Explica en dos líneas qué contiene la carpeta generada (exe, runtime, app).</p>
+<p><strong>Ejercicio 2 — La web en el navegador (obligatorio).</strong> Genera la distribución web, sírvela en local con <code>python -m http.server</code> y captura la app funcionando en el navegador (se debe ver la URL localhost en la barra de direcciones). Indica el tamaño total de la carpeta generada.</p>
+<p><strong>Ejercicio 3 — Tabla comparativa (obligatorio).</strong> Completa en tu documento esta tabla con los datos REALES de tu proyecto:</p>
+<table>
+<thead>
+<tr>
+<th>Producto</th>
+<th>Tarea</th>
+<th>Tamaño en disco</th>
+<th>¿Necesita Java instalado?</th>
+<th>Usuario final: cómo lo abre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.exe portable</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>.msi</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uber JAR</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Web</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>APK</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ejercicio 4 — Ampliación: el instalador (opcional, sesión de 4 horas).</strong> Genera el <code>.msi</code>, instala la app, captura el menú Inicio con tu app y la entrada de <em>Aplicaciones instaladas</em>, y desinstálala. Añade una reflexión de tres líneas: ¿cuándo repartirías un portable y cuándo un instalador a tus usuarios?</p>
+<h3 id="criterios-de-entrega">Criterios de entrega</h3>
 <ul>
-<li><a href="https://ismaelvelasco-star.github.io/slides/section2-di/DI-U1.1.-IntroduccionConfeccionInterfaces.html">DI-U1.1 - Introducción a la confección de interfaces</a></li>
-<li><a href="https://ismaelvelasco-star.github.io/slides/section2-di/DI-U2.1.-ClasesYComponentes.html">DI-U2.1 - Clases y componentes</a></li>
-</ul>
-<h2 id="recursos">Recursos</h2>
-<ul>
-<li><a href="recursos/DI%20Normativa.txt">Normativa oficial del módulo 0488</a></li>
-<li>Android Developers: <a href="https://developer.android.com/develop/ui/compose">https://developer.android.com/develop/ui/compose</a></li>
-<li>Kotlin docs: <a href="https://kotlinlang.org/docs/home.html">https://kotlinlang.org/docs/home.html</a></li>
+<li>Documento con las capturas de los ejercicios obligatorios y la tabla comparativa con datos reales.</li>
+<li>Las capturas deben ser propias (se ve tu usuario, tu nombre de proyecto o tu interfaz).</li>
+<li>Sube el documento a la plataforma del curso.</li>
 </ul>
 
 
@@ -1483,10 +1821,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
