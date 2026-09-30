@@ -1788,7 +1788,7 @@
 <ul>
 <li><strong>Toolbar</strong>: barra de herramientas con las acciones genéricas: crear proyectos y archivos, sincronizar Gradle, gestor de SDK, emulador y, especialmente, el botón <strong>Run</strong> (▶) para ejecutar la app en el dispositivo elegido.</li>
 <li><strong>Vista <em>Split</em></strong>: muestra a la vez el código Kotlin y la previsualización en vivo de la interfaz (<code>@Preview</code>), permitiendo diseñar viendo el resultado sin ejecutar la app.</li>
-<li><strong><em>Autocompletado (Ctrl+Espacio)</em></strong>: el "catálogo" de componibles de Compose: al escribir las primeras letras de un componente, Android Studio ofrece la función completa con sus parámetros y documentación. Sustituye a la paleta de arrastre de los editores clásicos (que no existe en Compose).</li>
+<li><strong><em>Autocompletado (Ctrl+Espacio)</em></strong>: el "catálogo" de composables de Compose: al escribir las primeras letras de un componente, Android Studio ofrece la función completa con sus parámetros y documentación. Sustituye a la paleta de arrastre de los editores clásicos (que no existe en Compose).</li>
 <li><strong><em>Component Tree</em></strong>: árbol que resume todos los componentes colocados en el diseño, como un explorador de la jerarquía de la interfaz.</li>
 </ul>
 <h3 id="b3">B3</h3>
@@ -1892,7 +1892,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">package</span><span class="w"> </span><span class="nn">org.tunombre.apellido.miprimainterfaz</span><span class="w">   </span><span class="c1">// el paquete de TU androidApp</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.tooling.preview.Preview</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">import</span><span class="w"> </span><span class="nn">org.tunombre.apellido.MiPrimeraInterfaz.shared.App</span><span class="w">   </span><span class="c1">// el componible llega desde shared</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">import</span><span class="w"> </span><span class="nn">org.tunombre.apellido.MiPrimeraInterfaz.shared.App</span><span class="w">   </span><span class="c1">// el composable llega desde shared</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nd">@Preview</span><span class="p">(</span><span class="n">showBackground</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nd">@Composable</span>
