@@ -71,7 +71,11 @@ Ejercicios ordenados **de menor a mayor dificultad**. Los bloques A y B son indi
 
 **C3.** Ejecuta la app **dos veces**: primero en el emulador Android (*Run ▶* con la configuración `androidApp`) y luego en escritorio (la tarea `run` del módulo `desktopApp`). Debes ver la **misma interfaz** en las dos plataformas: eso es Compose Multiplatform. Captura ambas ejecuciones. Después, modifica el composable compartido `App()` para que muestre tu nombre y tu ciclo en dos `Text`, centrados en pantalla (la misma idea del caso práctico 1 del tema), y vuelve a ejecutar en las dos plataformas para comprobar que el cambio se refleja en ambas.
 
-**C4.** Sustituye el contenido de `App()` por una fila (`Row`) con dos botones **Aceptar** y **Cancelar** (la idea del caso práctico 2 del tema). Escríbelo a mano en el editor con ayuda del autocompletado (**Ctrl+Espacio**) y observa la vista *Split* mientras escribes. Comenta qué ocurre en la preview en cada paso.
+**C4.** Partiendo de C3, sustituye el contenido de `App()` por una fila (`Row`) con dos botones **Aceptar** y **Cancelar** (la idea del caso práctico 2 del tema). Recuerda la división de módulos de C2 y no te saltes ningún paso:
+
+1. **Qué archivo abro** → `app/shared/src/commonMain/kotlin/<tu.paquete>/App.kt`. Es el único que hay que tocar: ahí vive la interfaz de todas las plataformas.
+2. **Qué edito dentro** → el cuerpo de la función `App()`: borra la `Column` de C3 y escribe a mano la `Row` con los dos `Button`, ayudándote del autocompletado (**Ctrl+Espacio**).
+3. **Dónde miro el resultado** → guarda y ejecuta en las dos plataformas de C3: emulador Android (`androidApp`) y ventana de escritorio (`desktopApp → run`). Comenta qué ocurre en la preview en cada paso y por qué no has tenido que tocar `MainActivity.kt` ni el módulo `core`.
 
 **C5.** Añade una función `@Preview` para tu composable y comprueba que la previsualización aparece sin ejecutar la app. Ojo a la regla KMP: el `@Preview` **no puede vivir en `shared`** (ese módulo también compila para escritorio, donde la previsualización de Android no existe); créala en `app androidApp`, en un archivo propio (por ejemplo `Previews.kt`), importando el composable desde `shared`. ¿Qué ventaja tiene la preview respecto a ejecutar el emulador para cada cambio?
 

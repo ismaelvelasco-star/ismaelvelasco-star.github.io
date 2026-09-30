@@ -162,7 +162,11 @@ Como `App()` vive en `shared`, **una sola edición** sirve para las dos platafor
 
 ### C4
 
-> **Enunciado.** Sustituye el contenido de `App()` por una fila (`Row`) con dos botones **Aceptar** y **Cancelar** (la idea del caso práctico 2 del tema). Escríbelo a mano en el editor con ayuda del autocompletado (**Ctrl+Espacio**) y observa la vista *Split* mientras escribes. Comenta qué ocurre en la preview en cada paso.
+> **Enunciado.** Partiendo de C3, sustituye el contenido de `App()` por una fila (`Row`) con dos botones **Aceptar** y **Cancelar** (la idea del caso práctico 2 del tema). Recuerda la división de módulos de C2 y no te saltes ningún paso:
+>
+> 1. **Qué archivo abro** → `app/shared/src/commonMain/kotlin/<tu.paquete>/App.kt`. Es el único que hay que tocar: ahí vive la interfaz de todas las plataformas.
+> 2. **Qué edito dentro** → el cuerpo de la función `App()`: borra la `Column` de C3 y escribe a mano la `Row` con los dos `Button`, ayudándote del autocompletado (**Ctrl+Espacio**).
+> 3. **Dónde miro el resultado** → guarda y ejecuta en las dos plataformas de C3: emulador Android (`androidApp`) y ventana de escritorio (`desktopApp → run`). Comenta qué ocurre en la preview en cada paso y por qué no has tenido que tocar `MainActivity.kt` ni el módulo `core`.
 
 **Solución.**
 
