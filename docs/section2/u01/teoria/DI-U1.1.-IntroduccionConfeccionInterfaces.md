@@ -146,7 +146,133 @@ Es importante distinguir los dos términos para no mezclarlos:
 | `@Composable` | La **anotación** que se escribe delante de la función | `@Composable fun Saludo()` |
 | Función composable (o composable) | La **función** marcada con esa anotación, que describe la interfaz | `Saludo()`, `Text()`, `Button()` |
 
-Se puede confundir el composable raíz con la **actividad** (`ComponentActivity`), pero mientras que la primera define la interfaz como tal, la segunda es la pantalla del sistema que la aloja: dentro de una actividad encontramos el `setContent { }` que "monta" nuestros composables.
+En este punto es fácil confundir dos conceptos que viven en capas distintas: el **composable raíz** y la **actividad** (`ComponentActivity`). La diferencia es la misma que hay entre un **edificio** y la **decoración de una habitación**: el edificio (actividad) es la estructura del sistema operativo, con ventanas, puerta y contrato con Android; la decoración (composables) es lo que tú dibujas dentro. Y el `setContent { }` es el contrato de alquiler que dice qué decoración se coloca en cada habitación.
+
+=== "Un vistazo rápido"
+
+    ```kotlin
+    // ─────────────────────────────────────────────────────────
+    // CAPA 1: LA ACTIVIDAD (el "edificio")
+    // No dibuja nada: es la pantalla que Android crea y gestiona.
+    // ─────────────────────────────────────────────────────────
+    class MainActivity : ComponentActivity() {
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContent {              // <- PUENTE entre los dos mundos
+                MiApp()               // <- aquí se "monta" la interfaz
+            }
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // CAPA 2: EL COMPOSABLE RAÍZ (la "decoración")
+    // Todo lo que se ve en pantalla se describe aquí, en Kotlin.
+    // ─────────────────────────────────────────────────────────
+    @Composable
+    fun MiApp() {
+        Column {
+            Text("Bienvenido")
+            Button(onClick = { }) {
+                Text("Entrar")
+            }
+        }
+    }
+    ```
+
+=== "Versión extendida con comentarios"
+
+    ```kotlin
+    // 1) LA ACTIVIDAD: pertenece al MUNDO ANDROID (sistema).
+    //    Android la crea, la destruye y le da ciclos de vida.
+    //    Por eso extiende de ComponentActivity y sobrescribe onCreate().
+    class MainActivity : ComponentActivity() {
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+
+            // 2) setContent {}: el PUENTE.
+            //    Todo lo que va entre llaves es código Compose.
+            //    Aquí termina el mundo de las actividades y empieza el tuyo.
+            setContent {
+                MiApp()   // <- un único composable raíz por setContent
+            }
+        }
+    }
+
+    // 3) EL COMPOSABLE RAÍZ: pertenece al MUNDO COMPOSE (interfaz).
+    //    Es una función normal de Kotlin anotada con @Composable.
+    //    Android no sabe que existe: solo sabe dibujar lo que ella describe.
+    @Composable
+    fun MiApp() {
+        Column {
+            Text("Bienvenido")          // composable hijo
+            Button(onClick = { }) {
+                Text("Entrar")          // composable nieto
+            }
+        }
+    }
+    ```
+
+| | **Actividad** (`ComponentActivity`) | **Composable raíz** (`MiApp()`) |
+|---|---|---|
+| **Qué es** | La pantalla del sistema que aloja la interfaz | La función que describe la interfaz |
+| **Quién la gestiona** | **Android** (la crea, pausa, destruye) | **Compose** (se re-ejecuta al cambiar el estado) |
+| **Formato** | Clase Kotlin que hereda de `ComponentActivity` | Función Kotlin anotada con `@Composable` |
+| **Dónde vive** | `MainActivity.kt`, registrada en `AndroidManifest.xml` | En cualquier archivo `.kt`; la invocas desde `setContent` |
+| **Ciclo de vida** | `onCreate()` → `onStart()` → `onResume()` … | Recomposición: se re-ejecuta cuando cambia un estado |
+| **¿Dibuja píxeles?** | No (solo aloja) | Sí (describe toda la UI) |
+| **Analogía** | El edificio con ventana a la pantalla | La decoración interior de una habitación |
+
+```mermaid
+flowchart TD
+    OS[Android / sistema operativo] --> A["Actividad MainActivity<br/>(pantalla del sistema)"]
+    A -->|setContent { ... }| R["Composable raíz MiApp()<br/>(inicio del árbol de interfaz)"]
+    R --> C["Column<br/>(contenedor)"]
+    C --> T1["Text · Bienvenido"]
+    C --> B["Button"]
+    B --> T2["Text · Entrar"]
+    style OS fill:#4a5568,color:#fff
+    style A fill:#2b6cb0,color:#fff
+    style R fill:#2f855a,color:#fff
+    style C fill:#2f855a,color:#fff
+    style T1 fill:#276749,color:#fff
+    style B fill:#276749,color:#fff
+    style T2 fill:#276749,color:#fff
+```
+
+**Cómo leer el diagrama:** todo lo azul pertenece al mundo Android (la actividad), todo lo verde pertenece al mundo Compose (los composables). El único punto de contacto entre ambos mundos es la flecha `setContent { }`: por encima hay sistema operativo, por debajo solo hay funciones de Kotlin describiendo píxeles.
+
+Un error típico de principiante es intentar dibujar dentro de la clase de la actividad (por ejemplo, escribiendo `Text(...)` suelto en `onCreate()`). No funciona: sin pasar por `setContent { }`, Android no sabe que ese código existe como interfaz. El orden siempre es: **actividad → `setContent { }` → composable raíz → resto del árbol**.
+
+```mermaid
+flowchart LR
+    subgraph SAC[" "]
+        direction TB
+        MA["class MainActivity<br/>: ComponentActivity()<br/><br/>onCreate()"] -->|llama a| SC["setContent { MiApp() }"]
+    end
+    subgraph SUI[" "]
+        direction TB
+        MI["@Composable<br/>fun MiApp()"] --> CO["Column { ... }"]
+        CO --> TX["Text() · Button()"]
+    end
+    SC ==>|"puente único"| MI
+    style SAC fill:#2b6cb033,stroke:#2b6cb0
+    style SUI fill:#2f855a33,stroke:#2f855a
+```
+
+La actividad puede seguir ejecutando código de sistema (gestionar permisos, escuchar el ciclo de vida, lanzar otras pantallas), pero **toda la interfaz visible se describe fuera de ella**, en funciones `@Composable`. Esta separación es deliberada: permite que la misma función `MiApp()` se muestre en un teléfono, una tablet o un escritorio sin tocar la actividad, como ya vimos con el proyecto multiplataforma.
+
+```mermaid
+flowchart LR
+    A1["Actividad Android"] -->|"setContent { MiApp() }"| MI["composable raíz MiApp()"]
+    D1["Ventana de escritorio<br/>(Window())"] -->|setContent| MI
+    W1["Navegador (Wasm)"] -->|Canvas-based rendering| MI
+    style MI fill:#2f855a,color:#fff
+    style A1 fill:#2b6cb0,color:#fff
+    style D1 fill:#805ad5,color:#fff
+    style W1 fill:#d69e2e,color:#000
+```
+
+**Moraleja:** la actividad *aloja*, el composable *describe*. Mientras más claro tengas la frontera `setContent { }`, más fácil te será depurar y reutilizar tu código.
 
 La creación de nuestro primer proyecto se realiza en dos sencillos pasos:
 
