@@ -1808,9 +1808,9 @@
 <h2 id="bloque-c-primer-proyecto">Bloque C — Primer proyecto</h2>
 <h3 id="c1">C1</h3>
 <blockquote>
-<p><strong>Enunciado.</strong> Instala Android Studio (si no lo tienes ya) siguiendo los pasos del apartado 6 del tema, captura la pantalla de bienvenida y crea un proyecto nuevo <em>Empty Activity</em> llamado <code>MiPrimeraInterfaz</code>.</p>
+<p><strong>Enunciado.</strong> Instala Android Studio (si no lo tienes ya) siguiendo los pasos del apartado 6 del tema, captura la pantalla de bienvenida y crea un proyecto nuevo <em>Empty Activity</em> llamado <code>TuNombreTuApellidoMiPrimeraInterfaz</code> (sustituye por tu nombre y apellido reales, por ejemplo <code>AnaGarciaMiPrimeraInterfaz</code>, según la norma de nombrado del bloque).</p>
 </blockquote>
-<p><strong>Solución.</strong> Tras completar el asistente de instalación y el primer arranque, la pantalla de bienvenida ofrece <em>New Project</em> / <em>Open</em>. Se elige <strong>New Project → Empty Activity (Compose)</strong>, se escribe el nombre <code>MiPrimeraInterfaz</code> y se deja el resto por defecto. La captura debe mostrar el asistente con el nombre escrito y, si se quiere, el proyecto ya abierto con el archivo <code>MainActivity.kt</code> visible.</p>
+<p><strong>Solución.</strong> Tras completar el asistente de instalación y el primer arranque, la pantalla de bienvenida ofrece <em>New Project</em> / <em>Open</em>. Se elige <strong>New Project → Empty Activity (Compose)</strong>, se escribe el nombre del proyecto <strong>con tu nombre y apellido delante</strong> (en el ejemplo, <code>AnaGarciaMiPrimeraInterfaz</code>) y se deja el resto por defecto. La captura debe mostrar el asistente con el nombre escrito y, si se quiere, el proyecto ya abierto con el archivo <code>MainActivity.kt</code> visible. El nombre propio en el proyecto queda así documentado en las capturas, la preview y el APK: cualquier entrega "prestada" se identifica de un vistazo.</p>
 <h3 id="c2">C2</h3>
 <blockquote>
 <p><strong>Enunciado.</strong> Localiza en el proyecto generado el archivo donde vive la interfaz (<code>MainActivity.kt</code>) y las tres vistas del editor (<em>Code</em>, <em>Split</em>, <em>Design</em>). Haz una captura de cada modo.</p>
@@ -1825,13 +1825,13 @@
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span><span class="w"> </span><span class="n">Bundle?</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="k">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="n">setContent</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">            </span><span class="n">MiPrimeraInterfaz</span><span class="p">()</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">            </span><span class="n">AnaGarciaMiPrimeraInterfaz</span><span class="p">()</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nd">@Composable</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">MiPrimeraInterfaz</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">AnaGarciaMiPrimeraInterfaz</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="n">Column</span><span class="p">(</span>
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span><span class="p">.</span><span class="na">fillMaxSize</span><span class="p">(),</span>
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="n">verticalArrangement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrangement</span><span class="p">.</span><span class="na">Center</span><span class="p">,</span>
@@ -1849,7 +1849,7 @@
 </blockquote>
 <p><strong>Solución.</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@Composable</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">MiPrimeraInterfaz</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">AnaGarciaMiPrimeraInterfaz</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">Row</span><span class="p">(</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span><span class="p">.</span><span class="na">fillMaxSize</span><span class="p">(),</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="n">horizontalArrangement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrangement</span><span class="p">.</span><span class="na">Center</span><span class="p">,</span>
@@ -1872,8 +1872,8 @@
 <p><strong>Solución.</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Preview</span><span class="p">(</span><span class="n">showBackground</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nd">@Composable</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">MiPrimeraInterfazPreview</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">MiPrimeraInterfaz</span><span class="p">()</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">AnaGarciaMiPrimeraInterfazPreview</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">AnaGarciaMiPrimeraInterfaz</span><span class="p">()</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
 </code></pre></div>
 <p>Con solo guardar el archivo, la previsualización aparece en el panel derecho (vista <em>Split</em> o <em>Design</em>) sin arrancar el emulador. <strong>Ventaja:</strong> el ciclo de cambio→verificación pasa de minutos (arrancar emulador, desplegar APK) a <strong>segundos</strong> (guardar y mirar), lo que acelera enormemente el diseño de interfaces. Además se pueden declarar varias previews con contenidos distintos para ver varios estados de la misma pantalla a la vez.</p>
