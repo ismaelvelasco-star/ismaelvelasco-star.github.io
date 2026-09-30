@@ -1864,7 +1864,12 @@
 <p>Como <code>App()</code> vive en <code>shared</code>, <strong>una sola edición</strong> sirve para las dos plataformas: al reejecutar <code>androidApp</code> en el emulador y <code>run</code> en escritorio, los dos textos aparecen centrados en ambos. El centrado lo hace el contenedor <code>Column</code> con sus parámetros de disposición (<code>verticalArrangement</code> y <code>horizontalAlignment</code>), no el texto.</p>
 <h3 id="c4">C4</h3>
 <blockquote>
-<p><strong>Enunciado.</strong> Sustituye el contenido de <code>App()</code> por una fila (<code>Row</code>) con dos botones <strong>Aceptar</strong> y <strong>Cancelar</strong> (la idea del caso práctico 2 del tema). Escríbelo a mano en el editor con ayuda del autocompletado (<strong>Ctrl+Espacio</strong>) y observa la vista <em>Split</em> mientras escribes. Comenta qué ocurre en la preview en cada paso.</p>
+<p><strong>Enunciado.</strong> Partiendo de C3, sustituye el contenido de <code>App()</code> por una fila (<code>Row</code>) con dos botones <strong>Aceptar</strong> y <strong>Cancelar</strong> (la idea del caso práctico 2 del tema). Recuerda la división de módulos de C2 y no te saltes ningún paso:</p>
+<ol>
+<li><strong>Qué archivo abro</strong> → <code>app/shared/src/commonMain/kotlin/&lt;tu.paquete&gt;/App.kt</code>. Es el único que hay que tocar: ahí vive la interfaz de todas las plataformas.</li>
+<li><strong>Qué edito dentro</strong> → el cuerpo de la función <code>App()</code>: borra la <code>Column</code> de C3 y escribe a mano la <code>Row</code> con los dos <code>Button</code>, ayudándote del autocompletado (<strong>Ctrl+Espacio</strong>).</li>
+<li><strong>Dónde miro el resultado</strong> → guarda y ejecuta en las dos plataformas de C3: emulador Android (<code>androidApp</code>) y ventana de escritorio (<code>desktopApp → run</code>). Comenta qué ocurre en la preview en cada paso y por qué no has tenido que tocar <code>MainActivity.kt</code> ni el módulo <code>core</code>.</li>
+</ol>
 </blockquote>
 <p><strong>Solución.</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@Composable</span>
