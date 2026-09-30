@@ -92,7 +92,7 @@ Componentes que NO hay que instalar aparte: el **JDK** (Android Studio incluye u
 
 - **Toolbar**: barra de herramientas con las acciones genéricas: crear proyectos y archivos, sincronizar Gradle, gestor de SDK, emulador y, especialmente, el botón **Run** (▶) para ejecutar la app en el dispositivo elegido.
 - **Vista *Split***: muestra a la vez el código Kotlin y la previsualización en vivo de la interfaz (`@Preview`), permitiendo diseñar viendo el resultado sin ejecutar la app.
-- ***Autocompletado (Ctrl+Espacio)***: el "catálogo" de componibles de Compose: al escribir las primeras letras de un componente, Android Studio ofrece la función completa con sus parámetros y documentación. Sustituye a la paleta de arrastre de los editores clásicos (que no existe en Compose).
+- ***Autocompletado (Ctrl+Espacio)***: el "catálogo" de composables de Compose: al escribir las primeras letras de un componente, Android Studio ofrece la función completa con sus parámetros y documentación. Sustituye a la paleta de arrastre de los editores clásicos (que no existe en Compose).
 - ***Component Tree***: árbol que resume todos los componentes colocados en el diseño, como un explorador de la jerarquía de la interfaz.
 
 ### B3
@@ -196,7 +196,7 @@ fun App() {
 package org.tunombre.apellido.miprimainterfaz   // el paquete de TU androidApp
 
 import androidx.compose.ui.tooling.preview.Preview
-import org.tunombre.apellido.MiPrimeraInterfaz.shared.App   // el componible llega desde shared
+import org.tunombre.apellido.MiPrimeraInterfaz.shared.App   // el composable llega desde shared
 
 @Preview(showBackground = true)
 @Composable
