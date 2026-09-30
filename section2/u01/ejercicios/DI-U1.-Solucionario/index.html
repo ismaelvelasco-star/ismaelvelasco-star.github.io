@@ -1808,48 +1808,67 @@
 <h2 id="bloque-c-primer-proyecto">Bloque C — Primer proyecto</h2>
 <h3 id="c1">C1</h3>
 <blockquote>
-<p><strong>Enunciado.</strong> Instala Android Studio (si no lo tienes ya) siguiendo los pasos del apartado 6 del tema, captura la pantalla de bienvenida y crea un proyecto nuevo <em>Empty Activity</em> llamado <code>TuNombreTuApellidoMiPrimeraInterfaz</code> (sustituye por tu nombre y apellido reales, por ejemplo <code>AnaGarciaMiPrimeraInterfaz</code>, según la norma de nombrado del bloque).</p>
+<p><strong>Enunciado.</strong> Entra en el asistente de Kotlin Multiplatform de JetBrains (<a href="https://kmp.jetbrains.com/">kmp.jetbrains.com</a>), marca las plataformas <strong>Android</strong> y <strong>Desktop</strong> y genera un proyecto llamado <code>TuNombreTuApellidoMiPrimeraInterfaz</code> (por ejemplo <code>AnaGarciaMiPrimeraInterfaz</code>, según la norma de nombrado del bloque). Descárgalo, ábrelo en Android Studio y espera la sincronización de Gradle. Captura la pantalla del asistente con tu nombre escrito y la estructura de módulos del panel <em>Project</em>.</p>
 </blockquote>
-<p><strong>Solución.</strong> Tras completar el asistente de instalación y el primer arranque, la pantalla de bienvenida ofrece <em>New Project</em> / <em>Open</em>. Se elige <strong>New Project → Empty Activity (Compose)</strong>, se escribe el nombre del proyecto <strong>con tu nombre y apellido delante</strong> (en el ejemplo, <code>AnaGarciaMiPrimeraInterfaz</code>) y se deja el resto por defecto. La captura debe mostrar el asistente con el nombre escrito y, si se quiere, el proyecto ya abierto con el archivo <code>MainActivity.kt</code> visible. El nombre propio en el proyecto queda así documentado en las capturas, la preview y el APK: cualquier entrega "prestada" se identifica de un vistazo.</p>
+<p><strong>Solución.</strong> En el asistente web se marca el proyecto <em>Compose Multiplatform</em> con las casillas <strong>Android</strong> y <strong>Desktop</strong> (JVM), se escribe el nombre del proyecto <strong>con tu nombre y apellido delante</strong> (en el ejemplo, <code>AnaGarciaMiPrimeraInterfaz</code>) y se pulsa <em>Download</em>. El ZIP resultante se descomprime y se abre en Android Studio (<em>File → Open</em>), donde la primera sincronización de Gradle descarga dependencias y puede tardar varios minutos. La captura del panel <em>Project</em> (vista <em>Project</em>, no <em>Android</em>) debe mostrar la estructura en árbol: carpetas <code>core</code>, <code>app</code> (con <code>shared</code>, <code>androidApp</code> y <code>desktopApp</code> dentro) y los scripts de Gradle. El nombre propio en el proyecto queda así documentado en las capturas, la preview y el APK: cualquier entrega "prestada" se identifica de un vistazo.</p>
 <h3 id="c2">C2</h3>
 <blockquote>
-<p><strong>Enunciado.</strong> Localiza en el proyecto generado el archivo donde vive la interfaz (<code>MainActivity.kt</code>) y las tres vistas del editor (<em>Code</em>, <em>Split</em>, <em>Design</em>). Haz una captura de cada modo.</p>
+<p><strong>Enunciado.</strong> El proyecto multiplataforma no es una carpeta única: es <strong>tres módulos</strong> con misiones distintas. Localiza <code>core</code> (lógica compartida), <code>app/shared</code> (interfaz compartida con Compose) y <code>app androidApp</code> (la actividad Android), y dentro de <code>shared</code> el archivo <code>App.kt</code>, donde vive la interfaz que se ve en <strong>todas</strong> las plataformas. Haz capturas del panel <em>Project</em> con los tres módulos y de <code>App.kt</code> abierto en el editor.</p>
 </blockquote>
-<p><strong>Solución.</strong> El archivo está en <code>app/src/main/java/&lt;paquete&gt;/MainActivity.kt</code>. Arriba a la derecha del editor aparecen las tres pestañas: <strong>Code</strong> (solo código Kotlin), <strong>Split</strong> (código + previsualización) y <strong>Design</strong> (solo previsualización). Las capturas deben mostrar la misma función <code>Greeting</code> renderizada en los tres modos. Es normal que en <em>Code</em> no haya nada visual: la previsualización aparece en cuanto el editor detecta funciones composables (o al añadir <code>@Preview</code>, ver C5).</p>
+<p><strong>Solución.</strong> El panel <em>Project</em> muestra la estructura real del disco. Los tres módulos y su misión:</p>
+<table>
+<thead>
+<tr>
+<th>Módulo</th>
+<th>Misión</th>
+<th>Qué contiene</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>core</code></td>
+<td>Lógica compartida <strong>pura</strong> (sin interfaz)</td>
+<td>Funciones de datos y reglas de negocio; <strong>prohibido</strong> Compose aquí</td>
+</tr>
+<tr>
+<td><code>app/shared</code></td>
+<td>Interfaz compartida con <strong>Compose Multiplatform</strong></td>
+<td><code>App.kt</code> y el resto de composables; se compila para todas las plataformas marcadas</td>
+</tr>
+<tr>
+<td><code>app/androidApp</code></td>
+<td>La "puerta" Android</td>
+<td><code>MainActivity.kt</code> con <code>setContent { App() }</code>; solo existe en Android</td>
+</tr>
+</tbody>
+</table>
+<p>La regla de oro que ya conoces del tema: <strong>todo lo que se ve en pantalla se escribe en <code>shared</code></strong>; <code>androidApp</code> se limita a montarlo en la actividad. El archivo clave es <code>app/shared/src/commonMain/kotlin/.../App.kt</code>: al abrirlo, su función <code>App()</code> muestra el saludo de ejemplo que verás idéntico en Android y en escritorio.</p>
 <h3 id="c3">C3</h3>
 <blockquote>
-<p><strong>Enunciado.</strong> Modifica el composable de ejemplo para que, en lugar del saludo por defecto, muestre tu nombre y tu ciclo en dos <code>Text</code>, centrados en pantalla (como el caso práctico 1 del tema). Ejecuta en el emulador y comprueba el resultado.</p>
+<p><strong>Enunciado.</strong> Ejecuta la app <strong>dos veces</strong>: primero en el emulador Android (<em>Run ▶</em> con la configuración <code>androidApp</code>) y luego en escritorio (la tarea <code>run</code> del módulo <code>desktopApp</code>). Debes ver la <strong>misma interfaz</strong> en las dos plataformas: eso es Compose Multiplatform. Captura ambas ejecuciones. Después, modifica el composable compartido <code>App()</code> para que muestre tu nombre y tu ciclo en dos <code>Text</code>, centrados en pantalla (la misma idea del caso práctico 1 del tema), y vuelve a ejecutar en las dos plataformas para comprobar que el cambio se refleja en ambas.</p>
 </blockquote>
-<p><strong>Solución.</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">MainActivity</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ComponentActivity</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span><span class="w"> </span><span class="n">Bundle?</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="k">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="n">setContent</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">            </span><span class="n">AnaGarciaMiPrimeraInterfaz</span><span class="p">()</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nd">@Composable</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">AnaGarciaMiPrimeraInterfaz</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="n">Column</span><span class="p">(</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span><span class="p">.</span><span class="na">fillMaxSize</span><span class="p">(),</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="n">verticalArrangement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrangement</span><span class="p">.</span><span class="na">Center</span><span class="p">,</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="n">horizontalAlignment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Alignment</span><span class="p">.</span><span class="na">CenterHorizontally</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="s">"Tu Nombre"</span><span class="p">)</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="s">"2º DAM · Desarrollo de Interfaces"</span><span class="p">)</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="p">}</span>
+<p><strong>Solución.</strong> Primera parte: en el selector de configuraciones (a la izquierda de <em>Run ▶</em>) se elige <code>androidApp</code> y se ejecuta con el emulador arrancado; después, en el panel <em>Gradle</em> se navega hasta <code>app → desktopApp → Tasks → application → run</code> (o el botón ▶ de la tarea), y se abre una <strong>ventana de escritorio</strong> con la misma interfaz del emulador.</p>
+<p>Segunda parte, el código compartido en <code>shared/src/commonMain/.../App.kt</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@Composable</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">Column</span><span class="p">(</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span><span class="p">.</span><span class="na">fillMaxSize</span><span class="p">(),</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="n">verticalArrangement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrangement</span><span class="p">.</span><span class="na">Center</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="n">horizontalAlignment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Alignment</span><span class="p">.</span><span class="na">CenterHorizontally</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="s">"Ana García"</span><span class="p">)</span><span class="w">                       </span><span class="c1">// &lt;- tu nombre real</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="s">"2º DAM · Desarrollo de Interfaces"</span><span class="p">)</span><span class="w"> </span><span class="c1">// &lt;- tu ciclo</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
 </code></pre></div>
-<p>El centrado lo hace el contenedor <code>Column</code> con sus parámetros de disposición (<code>verticalArrangement</code> y <code>horizontalAlignment</code>), no el texto. Al ejecutar (Run ▶ con el emulador arrancado) debe verse la pantalla con los dos textos centrados, ocupando toda la pantalla del dispositivo virtual.</p>
+<p>Como <code>App()</code> vive en <code>shared</code>, <strong>una sola edición</strong> sirve para las dos plataformas: al reejecutar <code>androidApp</code> en el emulador y <code>run</code> en escritorio, los dos textos aparecen centrados en ambos. El centrado lo hace el contenedor <code>Column</code> con sus parámetros de disposición (<code>verticalArrangement</code> y <code>horizontalAlignment</code>), no el texto.</p>
 <h3 id="c4">C4</h3>
 <blockquote>
-<p><strong>Enunciado.</strong> Sustituye el contenido por una fila con dos botones <strong>Aceptar</strong> y <strong>Cancelar</strong> (como el caso práctico 2 del tema). Escríbelo a mano en el editor con ayuda del autocompletado (<strong>Ctrl+Espacio</strong>) y observa la vista <em>Split</em> mientras escribes. Comenta qué ocurre en la preview en cada paso.</p>
+<p><strong>Enunciado.</strong> Sustituye el contenido de <code>App()</code> por una fila (<code>Row</code>) con dos botones <strong>Aceptar</strong> y <strong>Cancelar</strong> (la idea del caso práctico 2 del tema). Escríbelo a mano en el editor con ayuda del autocompletado (<strong>Ctrl+Espacio</strong>) y observa la vista <em>Split</em> mientras escribes. Comenta qué ocurre en la preview en cada paso.</p>
 </blockquote>
 <p><strong>Solución.</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@Composable</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">AnaGarciaMiPrimeraInterfaz</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">Row</span><span class="p">(</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Modifier</span><span class="p">.</span><span class="na">fillMaxSize</span><span class="p">(),</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="n">horizontalArrangement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrangement</span><span class="p">.</span><span class="na">Center</span><span class="p">,</span>
@@ -1867,16 +1886,21 @@
 <p><strong>Qué se observa:</strong> mientras se escribe, la preview de la vista <em>Split</em> se redibuja al instante — incluso con el código a medias, mostrando el estado intermedio. La vista <em>Split</em> es un espejo en vivo del código: cada carácter escrito se refleja al segundo en la previsualización, sin compilar ni ejecutar nada.</p>
 <h3 id="c5">C5</h3>
 <blockquote>
-<p><strong>Enunciado.</strong> Añade una función <code>@Preview</code> a tu composable y comprueba que la previsualización aparece sin ejecutar la app. ¿Qué ventaja tiene respecto a ejecutar el emulador para cada cambio?</p>
+<p><strong>Enunciado.</strong> Añade una función <code>@Preview</code> para tu composable y comprueba que la previsualización aparece sin ejecutar la app. Ojo a la regla KMP: el <code>@Preview</code> <strong>no puede vivir en <code>shared</code></strong> (ese módulo también compila para escritorio, donde la previsualización de Android no existe); créala en <code>app androidApp</code>, en un archivo propio (por ejemplo <code>Previews.kt</code>), importando el composable desde <code>shared</code>. ¿Qué ventaja tiene la preview respecto a ejecutar el emulador para cada cambio?</p>
 </blockquote>
-<p><strong>Solución.</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Preview</span><span class="p">(</span><span class="n">showBackground</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nd">@Composable</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">AnaGarciaMiPrimeraInterfazPreview</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">AnaGarciaMiPrimeraInterfaz</span><span class="p">()</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
+<p><strong>Solución.</strong> En <code>app/androidApp/src/main/kotlin/.../Previews.kt</code> (archivo nuevo en el módulo <strong>Android</strong>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">package</span><span class="w"> </span><span class="nn">org.tunombre.apellido.miprimainterfaz</span><span class="w">   </span><span class="c1">// el paquete de TU androidApp</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.ui.tooling.preview.Preview</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">import</span><span class="w"> </span><span class="nn">org.tunombre.apellido.MiPrimeraInterfaz.shared.App</span><span class="w">   </span><span class="c1">// el componible llega desde shared</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nd">@Preview</span><span class="p">(</span><span class="n">showBackground</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nd">@Composable</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">AppPreview</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="n">App</span><span class="p">()</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">}</span>
 </code></pre></div>
-<p>Con solo guardar el archivo, la previsualización aparece en el panel derecho (vista <em>Split</em> o <em>Design</em>) sin arrancar el emulador. <strong>Ventaja:</strong> el ciclo de cambio→verificación pasa de minutos (arrancar emulador, desplegar APK) a <strong>segundos</strong> (guardar y mirar), lo que acelera enormemente el diseño de interfaces. Además se pueden declarar varias previews con contenidos distintos para ver varios estados de la misma pantalla a la vez.</p>
+<p>La importación de <code>App</code> resuelve contra el módulo <code>shared</code>, que Android Studio ya tiene sincronizado como dependencia de <code>androidApp</code>. Con solo guardar el archivo, la previsualización aparece en el panel derecho (vista <em>Split</em> o <em>Design</em>) <strong>sin arrancar el emulador</strong>. <strong>Ventaja:</strong> el ciclo de cambio→verificación pasa de minutos (arrancar emulador, desplegar APK) a <strong>segundos</strong> (guardar y mirar), lo que acelera enormemente el diseño de interfaces. Además se pueden declarar varias previews con contenidos distintos para ver varios estados de la misma pantalla a la vez.</p>
 
 
 

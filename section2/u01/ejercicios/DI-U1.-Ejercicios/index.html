@@ -1001,10 +1001,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bloque-c-primer-proyecto-nivel-medio" class="md-nav__link">
+  <a href="#bloque-c-primer-proyecto-multiplataforma-nivel-medio" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bloque C — Primer proyecto (nivel: medio)
+        Bloque C — Primer proyecto multiplataforma (nivel: medio)
       
     </span>
   </a>
@@ -1337,10 +1337,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bloque-c-primer-proyecto-nivel-medio" class="md-nav__link">
+  <a href="#bloque-c-primer-proyecto-multiplataforma-nivel-medio" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bloque C — Primer proyecto (nivel: medio)
+        Bloque C — Primer proyecto multiplataforma (nivel: medio)
       
     </span>
   </a>
@@ -1427,18 +1427,18 @@
 <p><strong>B2.</strong> En el análisis del entorno de diseño (apartado 8 del tema), explica para qué sirven: la <em>Toolbar</em>, la vista <em>Split</em>, el autocompletado (<em>Ctrl+Espacio</em>) y el <em>Component Tree</em>.</p>
 <p><strong>B3.</strong> ¿Qué diferencia hay entre una <strong>actividad</strong> (<code>ComponentActivity</code>) y una <strong>función composable</strong>? ¿Cuál de las dos "monta" a la otra y con qué sentencia?</p>
 <p><strong>B4.</strong> ¿Qué hay que escribir para importar en Kotlin solo el componente <code>Button</code> de Material 3? ¿Y para importar toda la librería Material 3?</p>
-<h2 id="bloque-c-primer-proyecto-nivel-medio">Bloque C — Primer proyecto (nivel: medio)</h2>
+<h2 id="bloque-c-primer-proyecto-multiplataforma-nivel-medio">Bloque C — Primer proyecto multiplataforma (nivel: medio)</h2>
 <div class="admonition warning">
 <p class="admonition-title">Norma de nombrado obligatoria (anti-copypaste)</p>
 <p>Todo proyecto que crees en este módulo llevará <strong>tu nombre y tu apellido</strong> delante del nombre del ejercicio, todo junto y sin espacios ni tildes: <code>NombreApellido</code> + <code>NombreDelProyecto</code>.</p>
 <p>Ejemplo: una alumna llamada Ana García llamaría a su primer proyecto <code>AnaGarciaMiPrimeraInterfaz</code>.</p>
 <p>Así cada captura de pantalla, cada preview y cada APK quedan marcados con el nombre de su autor o autora: una entrega prestada delata sola al compañero.</p>
 </div>
-<p><strong>C1.</strong> Instala Android Studio (si no lo tienes ya) siguiendo los pasos del apartado 6 del tema, captura la pantalla de bienvenida y crea un proyecto nuevo <em>Empty Activity</em> llamado <code>TuNombreTuApellidoMiPrimeraInterfaz</code> (sustituye por tu nombre y apellido reales, por ejemplo <code>AnaGarciaMiPrimeraInterfaz</code>, según la norma de nombrado del bloque).</p>
-<p><strong>C2.</strong> Localiza en el proyecto generado el archivo donde vive la interfaz (<code>MainActivity.kt</code>) y las tres vistas del editor (<em>Code</em>, <em>Split</em>, <em>Design</em>). Haz una captura de cada modo.</p>
-<p><strong>C3.</strong> Modifica el composable de ejemplo para que, en lugar del saludo por defecto, muestre tu nombre y tu ciclo en dos <code>Text</code>, centrados en pantalla (como el caso práctico 1 del tema). Ejecuta en el emulador y comprueba el resultado.</p>
-<p><strong>C4.</strong> Sustituye el contenido por una fila con dos botones <strong>Aceptar</strong> y <strong>Cancelar</strong> (como el caso práctico 2 del tema). Escríbelo a mano en el editor con ayuda del autocompletado (<strong>Ctrl+Espacio</strong>) y observa la vista <em>Split</em> mientras escribes. Comenta qué ocurre en la preview en cada paso.</p>
-<p><strong>C5.</strong> Añade una función <code>@Preview</code> a tu composable y comprueba que la previsualización aparece sin ejecutar la app. ¿Qué ventaja tiene respecto a ejecutar el emulador para cada cambio?</p>
+<p><strong>C1.</strong> Entra en el asistente de Kotlin Multiplatform de JetBrains (<a href="https://kmp.jetbrains.com/">kmp.jetbrains.com</a>), marca las plataformas <strong>Android</strong> y <strong>Desktop</strong> y genera un proyecto llamado <code>TuNombreTuApellidoMiPrimeraInterfaz</code> (por ejemplo <code>AnaGarciaMiPrimeraInterfaz</code>, según la norma de nombrado del bloque). Descárgalo, ábrelo en Android Studio y espera la sincronización de Gradle. Captura la pantalla del asistente con tu nombre escrito y la estructura de módulos del panel <em>Project</em>.</p>
+<p><strong>C2.</strong> El proyecto multiplataforma no es una carpeta única: es <strong>tres módulos</strong> con misiones distintas. Localiza <code>core</code> (lógica compartida), <code>app/shared</code> (interfaz compartida con Compose) y <code>app androidApp</code> (la actividad Android), y dentro de <code>shared</code> el archivo <code>App.kt</code>, donde vive la interfaz que se ve en <strong>todas</strong> las plataformas. Haz capturas del panel <em>Project</em> con los tres módulos y de <code>App.kt</code> abierto en el editor.</p>
+<p><strong>C3.</strong> Ejecuta la app <strong>dos veces</strong>: primero en el emulador Android (<em>Run ▶</em> con la configuración <code>androidApp</code>) y luego en escritorio (la tarea <code>run</code> del módulo <code>desktopApp</code>). Debes ver la <strong>misma interfaz</strong> en las dos plataformas: eso es Compose Multiplatform. Captura ambas ejecuciones. Después, modifica el composable compartido <code>App()</code> para que muestre tu nombre y tu ciclo en dos <code>Text</code>, centrados en pantalla (la misma idea del caso práctico 1 del tema), y vuelve a ejecutar en las dos plataformas para comprobar que el cambio se refleja en ambas.</p>
+<p><strong>C4.</strong> Sustituye el contenido de <code>App()</code> por una fila (<code>Row</code>) con dos botones <strong>Aceptar</strong> y <strong>Cancelar</strong> (la idea del caso práctico 2 del tema). Escríbelo a mano en el editor con ayuda del autocompletado (<strong>Ctrl+Espacio</strong>) y observa la vista <em>Split</em> mientras escribes. Comenta qué ocurre en la preview en cada paso.</p>
+<p><strong>C5.</strong> Añade una función <code>@Preview</code> para tu composable y comprueba que la previsualización aparece sin ejecutar la app. Ojo a la regla KMP: el <code>@Preview</code> <strong>no puede vivir en <code>shared</code></strong> (ese módulo también compila para escritorio, donde la previsualización de Android no existe); créala en <code>app androidApp</code>, en un archivo propio (por ejemplo <code>Previews.kt</code>), importando el composable desde <code>shared</code>. ¿Qué ventaja tiene la preview respecto a ejecutar el emulador para cada cambio?</p>
 <h2 id="entrega">Entrega</h2>
 <ul>
 <li>Bloques A y B: respuestas en un documento.</li>
