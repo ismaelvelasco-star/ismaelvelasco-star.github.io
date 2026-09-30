@@ -32,6 +32,9 @@ La teoría completa de la unidad está en un único documento:
 | [Ejercicios U1](ejercicios/DI-U1.-Ejercicios.md) | 13 ejercicios graduados en 4 bloques (A conceptos, B Kotlin, C primer proyecto, D integración) |
 | [Solucionario U1](ejercicios/DI-U1.-Solucionario.md) | Soluciones comentadas de todos los ejercicios |
 
+!!! note "Norma de nombrado de proyectos"
+    Los proyectos de los ejercicios se nombran siempre con **tu nombre y apellido** delante: `NombreApellido` + nombre del proyecto (ej. `AnaGarciaMiPrimeraInterfaz`). Ver detalle en el enunciado del bloque C.
+
 ## Información
 
 **Resultados de aprendizaje trabajados:** RA1 del módulo 0488 (interfaces con editores visuales, adaptando código generado).
