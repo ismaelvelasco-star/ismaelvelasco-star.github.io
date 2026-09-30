@@ -92,7 +92,7 @@ Componentes que NO hay que instalar aparte: el **JDK** (Android Studio incluye u
 
 - **Toolbar**: barra de herramientas con las acciones genéricas: crear proyectos y archivos, sincronizar Gradle, gestor de SDK, emulador y, especialmente, el botón **Run** (▶) para ejecutar la app en el dispositivo elegido.
 - **Vista *Split***: muestra a la vez el código Kotlin y la previsualización en vivo de la interfaz (`@Preview`), permitiendo diseñar viendo el resultado sin ejecutar la app.
-- ***Palette***: paleta de composables en la vista *Design* de la que se arrastran los componentes (textos, botones, campos, contenedores) hasta el lienzo.
+- ***Autocompletado (Ctrl+Espacio)***: el "catálogo" de componibles de Compose: al escribir las primeras letras de un componente, Android Studio ofrece la función completa con sus parámetros y documentación. Sustituye a la paleta de arrastre de los editores clásicos (que no existe en Compose).
 - ***Component Tree***: árbol que resume todos los componentes colocados en el diseño, como un explorador de la jerarquía de la interfaz.
 
 ### B3
@@ -161,7 +161,7 @@ El centrado lo hace el contenedor `Column` con sus parámetros de disposición (
 
 ### C4
 
-> **Enunciado.** Sustituye el contenido por una fila con dos botones **Aceptar** y **Cancelar** (como el caso práctico 2 del tema). Hazlo primero desde la vista *Code* y luego prueba a arrastrar un componente desde la paleta en la vista *Design*. Comentario: ¿qué observas?
+> **Enunciado.** Sustituye el contenido por una fila con dos botones **Aceptar** y **Cancelar** (como el caso práctico 2 del tema). Escríbelo a mano en el editor con ayuda del autocompletado (**Ctrl+Espacio**) y observa la vista *Split* mientras escribes. Comenta qué ocurre en la preview en cada paso.
 
 **Solución.**
 
@@ -183,7 +183,7 @@ fun MiPrimeraInterfaz() {
 }
 ```
 
-**Qué se observa:** al arrastrar un componente desde la paleta en la vista *Design*, Android Studio **escribe el mismo código Kotlin** en la vista *Code*: las dos vistas son espejos de un único código. No hay "doble verdad" como en otros entornos clásicos: lo que arrastras es lo que está en el archivo, y puedes ajustarlo a mano en cualquier momento.
+**Qué se observa:** mientras se escribe, la preview de la vista *Split* se redibuja al instante — incluso con el código a medias, mostrando el estado intermedio. La vista *Split* es un espejo en vivo del código: cada carácter escrito se refleja al segundo en la previsualización, sin compilar ni ejecutar nada.
 
 ### C5
 

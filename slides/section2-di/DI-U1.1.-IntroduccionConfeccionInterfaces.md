@@ -102,7 +102,7 @@ Note: Los tres modelos que se combinan en las interfaces modernas. **Definicione
 
 ## Herramientas de edición
 
-Note: El panorama histórico de IDEs, actualizado. Contexto: la teoría clásica repasaba editores visuales de escritorio; hoy usamos el mismo concepto pero para móvil. Subrayar el patrón común que se repite en TODOS: paleta de componentes + lienzo + panel de propiedades. Cuando vean Android Studio reconocerán el patrón.
+Note: El panorama histórico de IDEs, actualizado. Contexto: la teoría clásica repasaba editores visuales de escritorio; hoy usamos el mismo concepto pero para móvil. Subrayar el patrón común de los editores VISUALES clásicos: paleta + lienzo + propiedades. Aclarar ya: Android Studio con Compose NO sigue ese patrón (es code-first), pero reconocer el clásico ayuda a valorar el cambio.
 
 
 ### El panorama
@@ -122,7 +122,7 @@ Note: Tabla comparativa resumida (la completa está en la teoría). **Definicion
 
 ![Glade](assets/glade.png) <!-- .element height="40%" -->
 
-Note: Los dos veteranos para que vean el patrón visual del que hablaba: ambos tienen paleta de componentes a la izquierda/centro, lienzo central y propiedades. Ese diseño de entorno viene de los 90-2000 y Android Studio lo hereda. Currículo honesto: "No los vais a usar en la vida probablemente, pero todo IDE visual que os encontréis se parece a esto."
+Note: Los dos veteranos para que vean el patrón visual del que hablaba: ambos tienen paleta de componentes a la izquierda/centro, lienzo central y propiedades. Ese diseño de entorno viene de los 90-2000; Android Studio con Views XML lo heredaba, pero con Compose lo abandona (code-first). Currículo honesto: "No los vais a usar en la vida probablemente, pero todo IDE visual que os encontréis se parece a esto."
 
 
 ### Android Studio: nuestra elección
@@ -213,13 +213,13 @@ Note: La barra superior con las acciones genéricas. El botón estrella: **Run �
 Note: LA joya del entorno para Compose. Tres modos de edición: Code (solo código), Design (solo lienzo) y Split (ambos a la vez — el de la captura). En la preview se renderizan EN VIVO las funciones marcadas con @Preview, sin ejecutar la app: escribes Kotlin y ves la interfaz aparecer al lado, con el indicador "Up-to-date" cuando está sincronizada. **Definiciones:** *@Preview* = anotación que indica que un composable debe renderizarse en la vista de diseño sin ejecutar la app. *Preview* (previsualización) = render en vivo de la interfaz dentro del IDE. Momento marketing: "Esto en Swing no existía: es de las cosas que hace que programar interfaces hoy sea un placer."
 
 
-### Palette, Component Tree y Attributes
+### Component Tree y propiedades
 
-- **Palette**: los composables listos para arrastrar
-- **Component Tree**: la jerarquía de lo colocado
-- **Attributes**: las propiedades del seleccionado
+- **Component Tree**: la jerarquía de lo escrito (clic → salta al código)
+- **Propiedades** = parámetros de la función Kotlin
+- **Ctrl+Espacio**: el "catálogo" de componibles
 
-Note: El trío clásico de todo editor visual, versión Compose. Palette: la paleta con todos los componentes (textos, botones, campos, contenedores Column/Row/Box...) — clic y arrastrar al lienzo. Component Tree: el árbol con la jerarquía de lo colocado, como un explorador de carpetas pero de la interfaz. Attributes: el panel de propiedades del componente seleccionado (texto, alineación, color, enabled...). Cada componente visual corresponde a una función de Kotlin con sus parámetros = sus propiedades. **Definiciones:** *Paleta* = catálogo de componentes visuales del entorno. *Component Tree* (árbol de componentes) = representación jerárquica de los elementos colocados. *Attributes* (atributos/propiedades) = características modificables de un componente.
+Note: OJO, esta slide desmonta el temario clásico: en Compose NO hay paleta de arrastrar ni panel Attributes (eso era de Views XML y de los editores clásicos). Lo que sí existe: el Component Tree (árbol con la jerarquía de lo escrito — clic y salta a su línea de código, ideal para elementos anidados) y las propiedades, que son los parámetros de la función (enabled, colors, modifier...; el texto va entre las llaves). El catálogo de componentes vive en el autocompletado Ctrl+Espacio. Remachar: código = fuente de verdad; preview = espejo en vivo. **Definiciones:** *Code-first* = el código es la fuente de verdad y la vista previa se genera desde él. *Component Tree* (árbol de componentes) = representación jerárquica de los elementos escritos.
 
 ---
 
@@ -261,7 +261,7 @@ fun MiPrimeraInterfaz() {
 }
 ```
 
-Note: Misma jugada en horizontal: Row (fila) con dos Button centrados. Fijarse en la anatomía del botón Compose: el texto va DENTRO de las llaves del botón (un composable dentro de otro), y onClick recibe entre llaves el código que se ejecuta al pulsar. Remachar la equivalencia de modos: escribirlo en Code o arrastrarlo en Design genera EL MISMO código Kotlin — son dos vistas espejo del mismo archivo. **Definiciones:** *Row* = contenedor en horizontal. *Button* = botón; su contenido (el texto) se declara dentro. *onClick* = parámetro que recibe la acción al pulsar (evento).
+Note: Misma jugada en horizontal: Row (fila) con dos Button centrados. Fijarse en la anatomía del botón Compose: el texto va DENTRO de las llaves del botón (un composable dentro de otro), y onClick recibe entre llaves el código que se ejecuta al pulsar. Remachar el flujo: se escribe Kotlin (con Ctrl+Espacio para insertar los componentes) y la preview de Split se redibuja al instante — la vista Split es un espejo en vivo del código. **Definiciones:** *Row* = contenedor en horizontal. *Button* = botón; su contenido (el texto) se declara dentro. *onClick* = parámetro que recibe la acción al pulsar (evento).
 
 
 ### Resumen en 4 líneas

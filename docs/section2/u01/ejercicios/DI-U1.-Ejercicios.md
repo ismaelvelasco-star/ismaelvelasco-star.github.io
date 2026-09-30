@@ -50,7 +50,7 @@ Ejercicios ordenados **de menor a mayor dificultad**. Los bloques A y B son indi
 
 **B1.** Enumera los tres pasos imprescindibles de la instalación de Android Studio según el tema y di qué dos componentes NO hay que instalar aparte (a diferencia de lo que ocurría con Eclipse y el JDK).
 
-**B2.** En el análisis del entorno de diseño (apartado 8 del tema), explica para qué sirven: la *Toolbar*, la vista *Split*, la *Palette* y el *Component Tree*.
+**B2.** En el análisis del entorno de diseño (apartado 8 del tema), explica para qué sirven: la *Toolbar*, la vista *Split*, el autocompletado (*Ctrl+Espacio*) y el *Component Tree*.
 
 **B3.** ¿Qué diferencia hay entre una **actividad** (`ComponentActivity`) y una **función composable**? ¿Cuál de las dos "monta" a la otra y con qué sentencia?
 
@@ -64,7 +64,7 @@ Ejercicios ordenados **de menor a mayor dificultad**. Los bloques A y B son indi
 
 **C3.** Modifica el composable de ejemplo para que, en lugar del saludo por defecto, muestre tu nombre y tu ciclo en dos `Text`, centrados en pantalla (como el caso práctico 1 del tema). Ejecuta en el emulador y comprueba el resultado.
 
-**C4.** Sustituye el contenido por una fila con dos botones **Aceptar** y **Cancelar** (como el caso práctico 2 del tema). Hazlo primero desde la vista *Code* y luego prueba a arrastrar un componente desde la paleta en la vista *Design*. Comenta qué observas.
+**C4.** Sustituye el contenido por una fila con dos botones **Aceptar** y **Cancelar** (como el caso práctico 2 del tema). Escríbelo a mano en el editor con ayuda del autocompletado (**Ctrl+Espacio**) y observa la vista *Split* mientras escribes. Comenta qué ocurre en la preview en cada paso.
 
 **C5.** Añade una función `@Preview` a tu composable y comprueba que la previsualización aparece sin ejecutar la app. ¿Qué ventaja tiene respecto a ejecutar el emulador para cada cambio?
 

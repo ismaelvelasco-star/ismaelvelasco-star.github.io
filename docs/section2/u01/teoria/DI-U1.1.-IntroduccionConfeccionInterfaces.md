@@ -196,7 +196,7 @@ MiPrimeraInterfaz/
 
 ## 8. Análisis del entorno de diseño en Android Studio
 
-El área de diseño para desarrolladores en Android Studio permite desarrollar interfaces añadiendo componentes gráficos directamente, sin necesidad de programar líneas de código: estos se generan automáticamente y pueden consultarse en la pestaña *Code*. Es decir, desde *Design* es posible añadir todos los elementos que se quieran incluir en la aplicación, y desde la vista de código se ajusta el comportamiento exacto de cada objeto insertado.
+El entorno de desarrollo de Android Studio para **Jetpack Compose es *code-first***: la interfaz se escribe en Kotlin y la herramienta de diseño la renderiza en vivo. A diferencia de los editores visuales clásicos (y del sistema de vistas XML anterior), **Compose no tiene paleta de componentes para arrastrar y soltar**: el código es la fuente de la verdad y la vista *Split/Design* es su espejo, que se redibuja al segundo. Los grupos de herramientas que describimos a continuación acompañan ese flujo de trabajo.
 
 A continuación se describen los diferentes grupos de herramientas que podemos encontrar, tanto los de tipo general como los específicos del área de diseño.
 
@@ -214,12 +214,12 @@ A continuación se describen los diferentes grupos de herramientas que podemos e
 <figcaption>Fig. 7. La vista Split: el código Kotlin a la izquierda y la preview de la interfaz renderizándose en vivo a la derecha (indicador "Up-to-date"). Fuente: developer.android.com.</figcaption>
 </figure>
 
-**8.3. Vista de diseño. Palette.** En la vista *Design* aparece la paleta de composables, que recoge todos los componentes, contenedores y propiedades que se utilizan en la creación de una interfaz Compose. Desde ella se realiza todo el diseño, ya que incorpora los elementos habituales: textos y botones, campos de texto, casillas de verificación, contenedores de disposición (columnas, filas, cajas), etc. Los componentes gráficos son los elementos que permiten al usuario interaccionar con la aplicación; cada uno corresponde con una función de Kotlin con sus propios parámetros. Para insertarlos en la zona de diseño basta con hacer clic sobre el componente y arrastrarlo hasta el punto exacto en el que se va a ubicar.
+**8.3. El catálogo de componentes.** Los componentes gráficos son los elementos que permiten al usuario interaccionar con la aplicación; cada uno corresponde con una función de Kotlin con sus propios parámetros: textos (`Text`) y botones (`Button`), campos de texto (`TextField`), casillas de verificación (`Checkbox`), contenedores de disposición (`Column`, `Row`, `Box`), etc. En Compose ese catálogo **no vive en una paleta lateral sino en el propio lenguaje**: se insertan escribiendo su nombre y dejando que el autocompletado de Android Studio (**Ctrl+Espacio**) los ofrezca con su documentación y parámetros. Escribe `But`, acepta `Button` y la preview de la vista *Split* lo renderiza al instante. El autocompletado es, en la práctica, la "paleta" de Compose: cada componible que existe está a tres letras y un tabulador de distancia.
 
-**8.4. Vista de diseño. Structure.** La última sección del entorno está formada por el árbol de componentes y el panel de propiedades (*Attributes*).
+**8.4. Jerarquía y propiedades.** Compose conserva dos ayudas visuales heredadas de los editores clásicos, adaptadas al flujo code-first:
 
-- **Component Tree**: muestra un resumen de todos los componentes colocados en el diseño, como si de un explorador de carpetas se tratase, pero con los elementos de la interfaz. Aparece el nombre de la función composable (por ejemplo `Button` o `Text`), que es el nombre del componente; el texto que se muestra al usuario puede ser diferente y, en la mayor parte de los casos, lo será.
-- **Attributes**: cada componente dispone de diferentes propiedades modificables desde este panel, entre ellas el texto mostrado, la alineación o el color de fondo. Propiedades típicas de un botón son su `text` (el contenido que ve el usuario) y `enabled`, que permite habilitar o deshabilitar su funcionalidad, entre otras de aspecto.
+- **Component Tree**: el árbol con la jerarquía de lo escrito, como un explorador de carpetas pero de la interfaz. Aparece el nombre de la función componible (por ejemplo `Button` o `Text`); el texto que se muestra al usuario puede ser diferente y, en la mayor parte de los casos, lo será. Clic en el árbol → salta a esa línea de código; útil para seleccionar un elemento pequeño o anidado sin fallar el clic en la preview.
+- **Parámetros de la función = propiedades.** No hay panel *Attributes*: las "propiedades" de cada componente son los **parámetros de su función Kotlin**. Las típicas de un botón: `enabled` (habilitar/deshabilitar), `colors` (colores), `modifier` (tamaño y alineación); y su contenido — el texto que ve el usuario — se declara entre las llaves del propio botón. Cambiar una propiedad es cambiar un argumento, y la preview se actualiza sola.
 
 **8.5. Tipos de proyecto nuevos.** Al crear un *New Project*, la galería de plantillas de Android Studio ofrece varios puntos de partida. Estas son las plantillas disponibles para teléfono/tablet, que conviene saber distinguir:
 
@@ -298,9 +298,9 @@ Es importante destacar que una de las principales diferencias a la hora de crear
 
 ## 10. Caso práctico 2: "Creación de un botón"
 
-**Planteamiento.** A lo largo del tema hemos analizado que la vista en modo *Design/Split* permite colocar elementos en la interfaz mientras se muestra una previsualización del resultado final. Utilizando esta vista, crea dos botones que muestren las opciones **Aceptar** y **Cancelar**.
+**Planteamiento.** A lo largo del tema hemos analizado que la vista *Split* muestra el código y su previsualización al mismo tiempo: escribimos Kotlin a la izquierda y el resultado se redibuja a la derecha. Utilizando este flujo, crea dos botones que muestren las opciones **Aceptar** y **Cancelar**.
 
-**Nudo.** Partiendo del proyecto del caso práctico anterior, sustituimos el contenido del composable por una fila (`Row`) con dos botones. Podemos escribirlos directamente en la vista *Code* o arrastrarlos desde la paleta en la vista *Design*; en ambos casos el resultado es el mismo código Kotlin:
+**Nudo.** Partiendo del proyecto del caso práctico anterior, sustituimos el contenido del componible por una fila (`Row`) con dos botones. Se escriben directamente en el editor (con **Ctrl+Espacio** para insertarlos con sus parámetros); la vista *Split* renderiza el resultado al instante:
 
 ```kotlin
 @Composable
@@ -322,7 +322,7 @@ fun MiPrimeraInterfaz() {
 
 Código 3. Dos botones en una fila.
 
-**Desenlace.** La interfaz final que obtendremos corresponde con un resultado similar al que se muestra en la imagen, con los dos botones centrados en pantalla y la previsualización actualizándose en vivo en la vista *Split* mientras los colocamos.
+**Desenlace.** La interfaz final que obtendremos corresponde con un resultado similar al que se muestra en la imagen, con los dos botones centrados en pantalla y la previsualización actualizándose en vivo en la vista *Split* mientras escribimos.
 
 ```text
 ┌─────────────────────────┐
@@ -338,7 +338,7 @@ Código 3. Dos botones en una fila.
 
 En este tema hemos visto que la librería **Jetpack Compose** contiene todas las funciones necesarias para programar todo tipo de componentes visuales como botones, textos, campos de edición o casillas de verificación, entre muchos otros. Para lograr una interfaz básica, será necesario hacer uso de al menos una **función composable** que describa la pantalla y poder añadirle objetos que sirvan para interactuar entre el usuario y la aplicación.
 
-Hemos comprobado también que, durante el desarrollo de una interfaz, podemos servirnos de dos modos de diseño: el **código** (vista *Code*) y la **vista de diseño** (*Split/Design*), que contiene una previsualización del resultado final de la interfaz y todos los elementos que se le pueden añadir, así como los contenedores donde se colocan dichos elementos.
+Hemos comprobado también que Compose es **code-first**: la interfaz se escribe en código Kotlin y la vista *Split/Design* es su previsualización en vivo. No existe paleta de arrastre: el catálogo de componentes vive en el autocompletado (**Ctrl+Espacio**) y las propiedades de cada componente son los parámetros de su función.
 
 **Resolución del caso práctico de la unidad.** Como se ha visto a lo largo del tema, el proceso de implementación no solo es importante para el desarrollo de interfaces, sino también para tomar una serie de decisiones previas. Para el caso inicial del desarrollo de la interfaz de una **aplicación de bienvenida para el instituto**:
 
