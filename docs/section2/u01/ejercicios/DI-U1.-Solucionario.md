@@ -118,56 +118,57 @@ La importación se escribe justo después de la declaración del paquete (si exi
 
 ### C1
 
-> **Enunciado.** Instala Android Studio (si no lo tienes ya) siguiendo los pasos del apartado 6 del tema, captura la pantalla de bienvenida y crea un proyecto nuevo *Empty Activity* llamado `TuNombreTuApellidoMiPrimeraInterfaz` (sustituye por tu nombre y apellido reales, por ejemplo `AnaGarciaMiPrimeraInterfaz`, según la norma de nombrado del bloque).
+> **Enunciado.** Entra en el asistente de Kotlin Multiplatform de JetBrains ([kmp.jetbrains.com](https://kmp.jetbrains.com/)), marca las plataformas **Android** y **Desktop** y genera un proyecto llamado `TuNombreTuApellidoMiPrimeraInterfaz` (por ejemplo `AnaGarciaMiPrimeraInterfaz`, según la norma de nombrado del bloque). Descárgalo, ábrelo en Android Studio y espera la sincronización de Gradle. Captura la pantalla del asistente con tu nombre escrito y la estructura de módulos del panel *Project*.
 
-**Solución.** Tras completar el asistente de instalación y el primer arranque, la pantalla de bienvenida ofrece *New Project* / *Open*. Se elige **New Project → Empty Activity (Compose)**, se escribe el nombre del proyecto **con tu nombre y apellido delante** (en el ejemplo, `AnaGarciaMiPrimeraInterfaz`) y se deja el resto por defecto. La captura debe mostrar el asistente con el nombre escrito y, si se quiere, el proyecto ya abierto con el archivo `MainActivity.kt` visible. El nombre propio en el proyecto queda así documentado en las capturas, la preview y el APK: cualquier entrega "prestada" se identifica de un vistazo.
+**Solución.** En el asistente web se marca el proyecto *Compose Multiplatform* con las casillas **Android** y **Desktop** (JVM), se escribe el nombre del proyecto **con tu nombre y apellido delante** (en el ejemplo, `AnaGarciaMiPrimeraInterfaz`) y se pulsa *Download*. El ZIP resultante se descomprime y se abre en Android Studio (*File → Open*), donde la primera sincronización de Gradle descarga dependencias y puede tardar varios minutos. La captura del panel *Project* (vista *Project*, no *Android*) debe mostrar la estructura en árbol: carpetas `core`, `app` (con `shared`, `androidApp` y `desktopApp` dentro) y los scripts de Gradle. El nombre propio en el proyecto queda así documentado en las capturas, la preview y el APK: cualquier entrega "prestada" se identifica de un vistazo.
 
 ### C2
 
-> **Enunciado.** Localiza en el proyecto generado el archivo donde vive la interfaz (`MainActivity.kt`) y las tres vistas del editor (*Code*, *Split*, *Design*). Haz una captura de cada modo.
+> **Enunciado.** El proyecto multiplataforma no es una carpeta única: es **tres módulos** con misiones distintas. Localiza `core` (lógica compartida), `app/shared` (interfaz compartida con Compose) y `app androidApp` (la actividad Android), y dentro de `shared` el archivo `App.kt`, donde vive la interfaz que se ve en **todas** las plataformas. Haz capturas del panel *Project* con los tres módulos y de `App.kt` abierto en el editor.
 
-**Solución.** El archivo está en `app/src/main/java/<paquete>/MainActivity.kt`. Arriba a la derecha del editor aparecen las tres pestañas: **Code** (solo código Kotlin), **Split** (código + previsualización) y **Design** (solo previsualización). Las capturas deben mostrar la misma función `Greeting` renderizada en los tres modos. Es normal que en *Code* no haya nada visual: la previsualización aparece en cuanto el editor detecta funciones composables (o al añadir `@Preview`, ver C5).
+**Solución.** El panel *Project* muestra la estructura real del disco. Los tres módulos y su misión:
+
+| Módulo | Misión | Qué contiene |
+|--------|--------|--------------|
+| `core` | Lógica compartida **pura** (sin interfaz) | Funciones de datos y reglas de negocio; **prohibido** Compose aquí |
+| `app/shared` | Interfaz compartida con **Compose Multiplatform** | `App.kt` y el resto de composables; se compila para todas las plataformas marcadas |
+| `app/androidApp` | La "puerta" Android | `MainActivity.kt` con `setContent { App() }`; solo existe en Android |
+
+La regla de oro que ya conoces del tema: **todo lo que se ve en pantalla se escribe en `shared`**; `androidApp` se limita a montarlo en la actividad. El archivo clave es `app/shared/src/commonMain/kotlin/.../App.kt`: al abrirlo, su función `App()` muestra el saludo de ejemplo que verás idéntico en Android y en escritorio.
 
 ### C3
 
-> **Enunciado.** Modifica el composable de ejemplo para que, en lugar del saludo por defecto, muestre tu nombre y tu ciclo en dos `Text`, centrados en pantalla (como el caso práctico 1 del tema). Ejecuta en el emulador y comprueba el resultado.
+> **Enunciado.** Ejecuta la app **dos veces**: primero en el emulador Android (*Run ▶* con la configuración `androidApp`) y luego en escritorio (la tarea `run` del módulo `desktopApp`). Debes ver la **misma interfaz** en las dos plataformas: eso es Compose Multiplatform. Captura ambas ejecuciones. Después, modifica el composable compartido `App()` para que muestre tu nombre y tu ciclo en dos `Text`, centrados en pantalla (la misma idea del caso práctico 1 del tema), y vuelve a ejecutar en las dos plataformas para comprobar que el cambio se refleja en ambas.
 
-**Solución.**
+**Solución.** Primera parte: en el selector de configuraciones (a la izquierda de *Run ▶*) se elige `androidApp` y se ejecuta con el emulador arrancado; después, en el panel *Gradle* se navega hasta `app → desktopApp → Tasks → application → run` (o el botón ▶ de la tarea), y se abre una **ventana de escritorio** con la misma interfaz del emulador.
+
+Segunda parte, el código compartido en `shared/src/commonMain/.../App.kt`:
 
 ```kotlin
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            AnaGarciaMiPrimeraInterfaz()
-        }
-    }
-}
-
 @Composable
-fun AnaGarciaMiPrimeraInterfaz() {
+fun App() {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Tu Nombre")
-        Text("2º DAM · Desarrollo de Interfaces")
+        Text("Ana García")                       // <- tu nombre real
+        Text("2º DAM · Desarrollo de Interfaces") // <- tu ciclo
     }
 }
 ```
 
-El centrado lo hace el contenedor `Column` con sus parámetros de disposición (`verticalArrangement` y `horizontalAlignment`), no el texto. Al ejecutar (Run ▶ con el emulador arrancado) debe verse la pantalla con los dos textos centrados, ocupando toda la pantalla del dispositivo virtual.
+Como `App()` vive en `shared`, **una sola edición** sirve para las dos plataformas: al reejecutar `androidApp` en el emulador y `run` en escritorio, los dos textos aparecen centrados en ambos. El centrado lo hace el contenedor `Column` con sus parámetros de disposición (`verticalArrangement` y `horizontalAlignment`), no el texto.
 
 ### C4
 
-> **Enunciado.** Sustituye el contenido por una fila con dos botones **Aceptar** y **Cancelar** (como el caso práctico 2 del tema). Escríbelo a mano en el editor con ayuda del autocompletado (**Ctrl+Espacio**) y observa la vista *Split* mientras escribes. Comenta qué ocurre en la preview en cada paso.
+> **Enunciado.** Sustituye el contenido de `App()` por una fila (`Row`) con dos botones **Aceptar** y **Cancelar** (la idea del caso práctico 2 del tema). Escríbelo a mano en el editor con ayuda del autocompletado (**Ctrl+Espacio**) y observa la vista *Split* mientras escribes. Comenta qué ocurre en la preview en cada paso.
 
 **Solución.**
 
 ```kotlin
 @Composable
-fun AnaGarciaMiPrimeraInterfaz() {
+fun App() {
     Row(
         modifier = Modifier.fillMaxSize(),
         horizontalArrangement = Arrangement.Center,
@@ -187,16 +188,21 @@ fun AnaGarciaMiPrimeraInterfaz() {
 
 ### C5
 
-> **Enunciado.** Añade una función `@Preview` a tu composable y comprueba que la previsualización aparece sin ejecutar la app. ¿Qué ventaja tiene respecto a ejecutar el emulador para cada cambio?
+> **Enunciado.** Añade una función `@Preview` para tu composable y comprueba que la previsualización aparece sin ejecutar la app. Ojo a la regla KMP: el `@Preview` **no puede vivir en `shared`** (ese módulo también compila para escritorio, donde la previsualización de Android no existe); créala en `app androidApp`, en un archivo propio (por ejemplo `Previews.kt`), importando el composable desde `shared`. ¿Qué ventaja tiene la preview respecto a ejecutar el emulador para cada cambio?
 
-**Solución.**
+**Solución.** En `app/androidApp/src/main/kotlin/.../Previews.kt` (archivo nuevo en el módulo **Android**):
 
 ```kotlin
+package org.tunombre.apellido.miprimainterfaz   // el paquete de TU androidApp
+
+import androidx.compose.ui.tooling.preview.Preview
+import org.tunombre.apellido.MiPrimeraInterfaz.shared.App   // el componible llega desde shared
+
 @Preview(showBackground = true)
 @Composable
-fun AnaGarciaMiPrimeraInterfazPreview() {
-    AnaGarciaMiPrimeraInterfaz()
+fun AppPreview() {
+    App()
 }
 ```
 
-Con solo guardar el archivo, la previsualización aparece en el panel derecho (vista *Split* o *Design*) sin arrancar el emulador. **Ventaja:** el ciclo de cambio→verificación pasa de minutos (arrancar emulador, desplegar APK) a **segundos** (guardar y mirar), lo que acelera enormemente el diseño de interfaces. Además se pueden declarar varias previews con contenidos distintos para ver varios estados de la misma pantalla a la vez.
+La importación de `App` resuelve contra el módulo `shared`, que Android Studio ya tiene sincronizado como dependencia de `androidApp`. Con solo guardar el archivo, la previsualización aparece en el panel derecho (vista *Split* o *Design*) **sin arrancar el emulador**. **Ventaja:** el ciclo de cambio→verificación pasa de minutos (arrancar emulador, desplegar APK) a **segundos** (guardar y mirar), lo que acelera enormemente el diseño de interfaces. Además se pueden declarar varias previews con contenidos distintos para ver varios estados de la misma pantalla a la vez.

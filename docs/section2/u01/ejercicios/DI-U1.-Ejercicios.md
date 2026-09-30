@@ -56,7 +56,7 @@ Ejercicios ordenados **de menor a mayor dificultad**. Los bloques A y B son indi
 
 **B4.** ¿Qué hay que escribir para importar en Kotlin solo el componente `Button` de Material 3? ¿Y para importar toda la librería Material 3?
 
-## Bloque C — Primer proyecto (nivel: medio)
+## Bloque C — Primer proyecto multiplataforma (nivel: medio)
 
 !!! warning "Norma de nombrado obligatoria (anti-copypaste)"
     Todo proyecto que crees en este módulo llevará **tu nombre y tu apellido** delante del nombre del ejercicio, todo junto y sin espacios ni tildes: `NombreApellido` + `NombreDelProyecto`.
@@ -65,15 +65,15 @@ Ejercicios ordenados **de menor a mayor dificultad**. Los bloques A y B son indi
 
     Así cada captura de pantalla, cada preview y cada APK quedan marcados con el nombre de su autor o autora: una entrega prestada delata sola al compañero.
 
-**C1.** Instala Android Studio (si no lo tienes ya) siguiendo los pasos del apartado 6 del tema, captura la pantalla de bienvenida y crea un proyecto nuevo *Empty Activity* llamado `TuNombreTuApellidoMiPrimeraInterfaz` (sustituye por tu nombre y apellido reales, por ejemplo `AnaGarciaMiPrimeraInterfaz`, según la norma de nombrado del bloque).
+**C1.** Entra en el asistente de Kotlin Multiplatform de JetBrains ([kmp.jetbrains.com](https://kmp.jetbrains.com/)), marca las plataformas **Android** y **Desktop** y genera un proyecto llamado `TuNombreTuApellidoMiPrimeraInterfaz` (por ejemplo `AnaGarciaMiPrimeraInterfaz`, según la norma de nombrado del bloque). Descárgalo, ábrelo en Android Studio y espera la sincronización de Gradle. Captura la pantalla del asistente con tu nombre escrito y la estructura de módulos del panel *Project*.
 
-**C2.** Localiza en el proyecto generado el archivo donde vive la interfaz (`MainActivity.kt`) y las tres vistas del editor (*Code*, *Split*, *Design*). Haz una captura de cada modo.
+**C2.** El proyecto multiplataforma no es una carpeta única: es **tres módulos** con misiones distintas. Localiza `core` (lógica compartida), `app/shared` (interfaz compartida con Compose) y `app androidApp` (la actividad Android), y dentro de `shared` el archivo `App.kt`, donde vive la interfaz que se ve en **todas** las plataformas. Haz capturas del panel *Project* con los tres módulos y de `App.kt` abierto en el editor.
 
-**C3.** Modifica el composable de ejemplo para que, en lugar del saludo por defecto, muestre tu nombre y tu ciclo en dos `Text`, centrados en pantalla (como el caso práctico 1 del tema). Ejecuta en el emulador y comprueba el resultado.
+**C3.** Ejecuta la app **dos veces**: primero en el emulador Android (*Run ▶* con la configuración `androidApp`) y luego en escritorio (la tarea `run` del módulo `desktopApp`). Debes ver la **misma interfaz** en las dos plataformas: eso es Compose Multiplatform. Captura ambas ejecuciones. Después, modifica el composable compartido `App()` para que muestre tu nombre y tu ciclo en dos `Text`, centrados en pantalla (la misma idea del caso práctico 1 del tema), y vuelve a ejecutar en las dos plataformas para comprobar que el cambio se refleja en ambas.
 
-**C4.** Sustituye el contenido por una fila con dos botones **Aceptar** y **Cancelar** (como el caso práctico 2 del tema). Escríbelo a mano en el editor con ayuda del autocompletado (**Ctrl+Espacio**) y observa la vista *Split* mientras escribes. Comenta qué ocurre en la preview en cada paso.
+**C4.** Sustituye el contenido de `App()` por una fila (`Row`) con dos botones **Aceptar** y **Cancelar** (la idea del caso práctico 2 del tema). Escríbelo a mano en el editor con ayuda del autocompletado (**Ctrl+Espacio**) y observa la vista *Split* mientras escribes. Comenta qué ocurre en la preview en cada paso.
 
-**C5.** Añade una función `@Preview` a tu composable y comprueba que la previsualización aparece sin ejecutar la app. ¿Qué ventaja tiene respecto a ejecutar el emulador para cada cambio?
+**C5.** Añade una función `@Preview` para tu composable y comprueba que la previsualización aparece sin ejecutar la app. Ojo a la regla KMP: el `@Preview` **no puede vivir en `shared`** (ese módulo también compila para escritorio, donde la previsualización de Android no existe); créala en `app androidApp`, en un archivo propio (por ejemplo `Previews.kt`), importando el composable desde `shared`. ¿Qué ventaja tiene la preview respecto a ejecutar el emulador para cada cambio?
 
 ## Entrega
 
