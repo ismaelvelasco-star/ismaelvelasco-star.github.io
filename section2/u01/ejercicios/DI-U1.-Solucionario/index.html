@@ -1788,7 +1788,7 @@
 <ul>
 <li><strong>Toolbar</strong>: barra de herramientas con las acciones genéricas: crear proyectos y archivos, sincronizar Gradle, gestor de SDK, emulador y, especialmente, el botón <strong>Run</strong> (▶) para ejecutar la app en el dispositivo elegido.</li>
 <li><strong>Vista <em>Split</em></strong>: muestra a la vez el código Kotlin y la previsualización en vivo de la interfaz (<code>@Preview</code>), permitiendo diseñar viendo el resultado sin ejecutar la app.</li>
-<li><strong><em>Palette</em></strong>: paleta de composables en la vista <em>Design</em> de la que se arrastran los componentes (textos, botones, campos, contenedores) hasta el lienzo.</li>
+<li><strong><em>Autocompletado (Ctrl+Espacio)</em></strong>: el "catálogo" de componibles de Compose: al escribir las primeras letras de un componente, Android Studio ofrece la función completa con sus parámetros y documentación. Sustituye a la paleta de arrastre de los editores clásicos (que no existe en Compose).</li>
 <li><strong><em>Component Tree</em></strong>: árbol que resume todos los componentes colocados en el diseño, como un explorador de la jerarquía de la interfaz.</li>
 </ul>
 <h3 id="b3">B3</h3>
@@ -1845,7 +1845,7 @@
 <p>El centrado lo hace el contenedor <code>Column</code> con sus parámetros de disposición (<code>verticalArrangement</code> y <code>horizontalAlignment</code>), no el texto. Al ejecutar (Run ▶ con el emulador arrancado) debe verse la pantalla con los dos textos centrados, ocupando toda la pantalla del dispositivo virtual.</p>
 <h3 id="c4">C4</h3>
 <blockquote>
-<p><strong>Enunciado.</strong> Sustituye el contenido por una fila con dos botones <strong>Aceptar</strong> y <strong>Cancelar</strong> (como el caso práctico 2 del tema). Hazlo primero desde la vista <em>Code</em> y luego prueba a arrastrar un componente desde la paleta en la vista <em>Design</em>. Comentario: ¿qué observas?</p>
+<p><strong>Enunciado.</strong> Sustituye el contenido por una fila con dos botones <strong>Aceptar</strong> y <strong>Cancelar</strong> (como el caso práctico 2 del tema). Escríbelo a mano en el editor con ayuda del autocompletado (<strong>Ctrl+Espacio</strong>) y observa la vista <em>Split</em> mientras escribes. Comenta qué ocurre en la preview en cada paso.</p>
 </blockquote>
 <p><strong>Solución.</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@Composable</span>
@@ -1864,7 +1864,7 @@
 <a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
 </code></pre></div>
-<p><strong>Qué se observa:</strong> al arrastrar un componente desde la paleta en la vista <em>Design</em>, Android Studio <strong>escribe el mismo código Kotlin</strong> en la vista <em>Code</em>: las dos vistas son espejos de un único código. No hay "doble verdad" como en otros entornos clásicos: lo que arrastras es lo que está en el archivo, y puedes ajustarlo a mano en cualquier momento.</p>
+<p><strong>Qué se observa:</strong> mientras se escribe, la preview de la vista <em>Split</em> se redibuja al instante — incluso con el código a medias, mostrando el estado intermedio. La vista <em>Split</em> es un espejo en vivo del código: cada carácter escrito se refleja al segundo en la previsualización, sin compilar ni ejecutar nada.</p>
 <h3 id="c5">C5</h3>
 <blockquote>
 <p><strong>Enunciado.</strong> Añade una función <code>@Preview</code> a tu composable y comprueba que la previsualización aparece sin ejecutar la app. ¿Qué ventaja tiene respecto a ejecutar el emulador para cada cambio?</p>
