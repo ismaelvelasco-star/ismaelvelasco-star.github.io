@@ -58,7 +58,14 @@ Ejercicios ordenados **de menor a mayor dificultad**. Los bloques A y B son indi
 
 ## Bloque C — Primer proyecto (nivel: medio)
 
-**C1.** Instala Android Studio (si no lo tienes ya) siguiendo los pasos del apartado 6 del tema, captura la pantalla de bienvenida y crea un proyecto nuevo *Empty Activity* llamado `MiPrimeraInterfaz`.
+!!! warning "Norma de nombrado obligatoria (anti-copypaste)"
+    Todo proyecto que crees en este módulo llevará **tu nombre y tu apellido** delante del nombre del ejercicio, todo junto y sin espacios ni tildes: `NombreApellido` + `NombreDelProyecto`.
+
+    Ejemplo: una alumna llamada Ana García llamaría a su primer proyecto `AnaGarciaMiPrimeraInterfaz`.
+
+    Así cada captura de pantalla, cada preview y cada APK quedan marcados con el nombre de su autor o autora: una entrega prestada delata sola al compañero.
+
+**C1.** Instala Android Studio (si no lo tienes ya) siguiendo los pasos del apartado 6 del tema, captura la pantalla de bienvenida y crea un proyecto nuevo *Empty Activity* llamado `TuNombreTuApellidoMiPrimeraInterfaz` (sustituye por tu nombre y apellido reales, por ejemplo `AnaGarciaMiPrimeraInterfaz`, según la norma de nombrado del bloque).
 
 **C2.** Localiza en el proyecto generado el archivo donde vive la interfaz (`MainActivity.kt`) y las tres vistas del editor (*Code*, *Split*, *Design*). Haz una captura de cada modo.
 

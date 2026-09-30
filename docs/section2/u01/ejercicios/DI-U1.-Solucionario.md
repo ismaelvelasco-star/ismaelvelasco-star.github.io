@@ -118,9 +118,9 @@ La importación se escribe justo después de la declaración del paquete (si exi
 
 ### C1
 
-> **Enunciado.** Instala Android Studio (si no lo tienes ya) siguiendo los pasos del apartado 6 del tema, captura la pantalla de bienvenida y crea un proyecto nuevo *Empty Activity* llamado `MiPrimeraInterfaz`.
+> **Enunciado.** Instala Android Studio (si no lo tienes ya) siguiendo los pasos del apartado 6 del tema, captura la pantalla de bienvenida y crea un proyecto nuevo *Empty Activity* llamado `TuNombreTuApellidoMiPrimeraInterfaz` (sustituye por tu nombre y apellido reales, por ejemplo `AnaGarciaMiPrimeraInterfaz`, según la norma de nombrado del bloque).
 
-**Solución.** Tras completar el asistente de instalación y el primer arranque, la pantalla de bienvenida ofrece *New Project* / *Open*. Se elige **New Project → Empty Activity (Compose)**, se escribe el nombre `MiPrimeraInterfaz` y se deja el resto por defecto. La captura debe mostrar el asistente con el nombre escrito y, si se quiere, el proyecto ya abierto con el archivo `MainActivity.kt` visible.
+**Solución.** Tras completar el asistente de instalación y el primer arranque, la pantalla de bienvenida ofrece *New Project* / *Open*. Se elige **New Project → Empty Activity (Compose)**, se escribe el nombre del proyecto **con tu nombre y apellido delante** (en el ejemplo, `AnaGarciaMiPrimeraInterfaz`) y se deja el resto por defecto. La captura debe mostrar el asistente con el nombre escrito y, si se quiere, el proyecto ya abierto con el archivo `MainActivity.kt` visible. El nombre propio en el proyecto queda así documentado en las capturas, la preview y el APK: cualquier entrega "prestada" se identifica de un vistazo.
 
 ### C2
 
@@ -139,13 +139,13 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MiPrimeraInterfaz()
+            AnaGarciaMiPrimeraInterfaz()
         }
     }
 }
 
 @Composable
-fun MiPrimeraInterfaz() {
+fun AnaGarciaMiPrimeraInterfaz() {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -167,7 +167,7 @@ El centrado lo hace el contenedor `Column` con sus parámetros de disposición (
 
 ```kotlin
 @Composable
-fun MiPrimeraInterfaz() {
+fun AnaGarciaMiPrimeraInterfaz() {
     Row(
         modifier = Modifier.fillMaxSize(),
         horizontalArrangement = Arrangement.Center,
@@ -194,8 +194,8 @@ fun MiPrimeraInterfaz() {
 ```kotlin
 @Preview(showBackground = true)
 @Composable
-fun MiPrimeraInterfazPreview() {
-    MiPrimeraInterfaz()
+fun AnaGarciaMiPrimeraInterfazPreview() {
+    AnaGarciaMiPrimeraInterfaz()
 }
 ```
 
